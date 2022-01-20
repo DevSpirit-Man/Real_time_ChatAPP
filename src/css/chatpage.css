@@ -1,0 +1,124 @@
+.chatbox{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+.chat__header{
+    width: inherit;
+    background-color: #ededed;
+    height: 65.29px;
+    border-bottom: 2px solid rgb(230, 230, 230);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 29px;
+    user-select: none;
+}
+.chat__footer{
+    background-color: #ededed;
+    border-top: 2px solid rgb(230, 230, 230);
+    position: absolute;
+    bottom: 0;
+    height: 57.29px;
+    width: 100%;
+}
+.avatar__chat__header img{
+    width: 40px;
+    border-radius: 100%;
+    margin-left: 9px;
+    margin-right: 20px;
+    margin-top: 6px;
+}
+.chat_header_ico{
+    width: 22px;
+    margin: 0 9px;
+    cursor: pointer;
+}
+.chat_header_ico1{
+    width: 25px;
+    margin: 0 9px;
+    cursor: pointer;
+}
+.chat__header__logosec{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+}
+.chat__header__name{
+    display: flex;
+    flex-direction: column;
+    width: 199px;
+}
+.chat__header__name p{
+    font-size: 11px;
+    margin-top: 5px;
+    color: #888888;
+}
+.chat__footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.chat__footer input{
+    width: 93%;
+    background-color: white;
+    height: 65%;
+    outline: none;
+    border: none;
+    border-radius: 24px;
+    padding-left: 12px;
+    border:2px solid rgb(230, 230, 230);
+    color: rgb(109, 109, 109);
+}
+
+
+.messagebox{
+    background-color: #ffffff;
+    width: fit-content;
+    max-width: 50%;
+    padding:3px 15px;
+    border-radius: 14px;
+    position: relative;
+    padding-bottom: 7px;
+}
+.timestamp{
+    font-size: 9.5px;
+    left: 9px;
+    user-select: none;
+}
+.authorof__msg{
+    font-size: 11.5px;
+    margin-left: 11px;
+    font-weight: 700;
+    color: #353535;
+    margin-bottom: 5px;
+    user-select: none;
+}
+.chat__body__message{
+    font-size: 13px;
+    font-weight: 600;
+    margin: 5px 0;
+    margin-bottom: -2px;
+}
+.messageboxcont{
+    margin-left: 12px;
+    margin-top: 9px;
+}
+.messageboxcontright{
+    margin-left: auto;
+    margin-top: 9px;
+    width: fit-content;
+}
+.messageboxright{
+    background-color: #86bbec;
+    width: fit-content;
+    max-width: 50%;
+    padding:3px 15px;
+    border-radius: 14px;
+    position: relative;
+    padding-bottom: 7px;
+    margin-left: auto;
+    margin-right: 9px;
+    margin-top: 18px;
+}
