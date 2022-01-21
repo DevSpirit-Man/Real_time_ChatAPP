@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/chatbox.css'
 import '../css/chatpage.css'
 import attach from '../ico/attach.png'
@@ -6,7 +6,15 @@ import search from '../ico/search.png'
 import menu from '../ico/menu.png'
 import emoji from '../ico/emoji.png'
 import send from '../ico/send.png'
+import { collection, collectionGroup, onSnapshot } from "firebase/firestore";
+import { db } from '../firebase';
+import { doc } from "firebase/firestore";
 function Chat() {
+    const [message, setMessage] = useState([])
+    console.log(message);
+    useEffect(() =>
+        onSnapshot(collectionGroup(db,"messages"), (snapshot) => setMessage(snapshot.docs.map(doc=>doc.data())))
+    , [])
     return (
         <div className='chatbox'>
             <div className="chat__header">
@@ -24,24 +32,10 @@ function Chat() {
                 </div>
             </div>
             <div className="chat__body">
-
-                <div className="messageboxcont">
-                    <span className='authorof__msg'>Nisab Mohd</span>
-                    <div className="messagebox">
-                        <p className="chat__body__message">
-                            Hello mfs Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quod corporis odit quibusdam recusandae repellendus error at veniam necessitatibus. Aspernatur odio laudantium adipisci exercitationem, ipsum veniam dicta vero ipsam iste!
-                        </p>
-                        <span className="timestamp">
-                            19:45 Wednesday
-                        </span>
-                    </div>
-                </div>
-
-
                 <div className="messageboxcont">
                     <div className="messageboxright">
                         <p className="chat__body__message">
-                            Hello mfs Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quod c laudantium adipisci exercitationem, ipsum veniam dicta vero ipsam iste!
+                            Hello mfs
                         </p>
                         <span className="timestamp">
                             19:45 Wednesday
@@ -49,51 +43,22 @@ function Chat() {
                     </div>
                 </div>
 
-                <div className="messageboxcont">
-                    <span className='authorof__msg'>Nisab Mohd</span>
-                    <div className="messagebox">
-                        <p className="chat__body__message">
-                            Hello mfs Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quod corporis odit quibusdam recusandae repellendus error at veniam necessitatibus. Aspernatur odio laudantium adipisci exercitationem, ipsum veniam dicta vero ipsam iste!
-                        </p>
-                        <span className="timestamp">
-                            19:45 Wednesday
-                        </span>
-                    </div>
-                </div>
+                {
+                    message.map(item => {
+                        return (<div className="messageboxcont">
+                            <span className='authorof__msg'>{item.name}</span>
+                            <div className="messagebox">
+                                <p className="chat__body__message">
+                                    {item.message}
+                                </p>
+                                <span className="timestamp">
+                                    {/* {item.time.toDate()} */}.
+                                </span>
+                            </div>
+                        </div>)
+                    })
+                }
 
-                <div className="messageboxcont">
-                    <div className="messageboxright">
-                        <p className="chat__body__message">
-                            Hello mfs Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quod c laudantium adipisci exercitationem, ipsum veniam dicta vero ipsam iste!
-                        </p>
-                        <span className="timestamp">
-                            19:45 Wednesday
-                        </span>
-                    </div>
-                </div>
-
-                <div className="messageboxcont">
-                    <div className="messageboxright">
-                        <p className="chat__body__message">
-                            Hello mfs Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quod c laudantium adipisci exercitationem, ipsum veniam dicta vero ipsam iste!
-                        </p>
-                        <span className="timestamp">
-                            19:45 Wednesday
-                        </span>
-                    </div>
-                </div>
-                
-                <div className="messageboxcont">
-                    <span className='authorof__msg'>Nisab Mohd</span>
-                    <div className="messagebox">
-                        <p className="chat__body__message">
-                            Hello mfs Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quod corporis odit quibusdam recusandae repellendus error at veniam necessitatibus. Aspernatur odio laudantium adipisci exercitationem, ipsum veniam dicta vero ipsam iste!
-                        </p>
-                        <span className="timestamp">
-                            19:45 Wednesday
-                        </span>
-                    </div>
-                </div>
 
 
             </div>
