@@ -9,12 +9,22 @@ import send from '../ico/send.png'
 import { collection, collectionGroup, onSnapshot } from "firebase/firestore";
 import { db } from '../firebase';
 import { doc } from "firebase/firestore";
-function Chat() {
+import { setDoc } from 'firebase/firestore';
+function Chat(props) {
+    console.log(props.userdata.uid);
     const [message, setMessage] = useState([])
-    console.log(message);
+    const [inputmsg, setInputmsg] = useState("");
+    // console.log(message);
+    // console.log(inputmsg);
     useEffect(() =>
-        onSnapshot(collectionGroup(db,"messages"), (snapshot) => setMessage(snapshot.docs.map(doc=>doc.data())))
-    , [])
+        onSnapshot(collection(db, "rooms"), (snapshot) => setMessage(snapshot.docs.map(doc => doc.data())))
+        , [])
+    function sendmsg() {
+        setDoc(doc(db, "rooms","zaQx3XD4zsAQ8ycs8nV4"), {
+            name: "Firebase",
+            message: inputmsg
+        });
+    }
     return (
         <div className='chatbox'>
             <div className="chat__header">
@@ -64,8 +74,9 @@ function Chat() {
             </div>
             <div className="chat__footer">
                 <img className='chat_header_ico1' src={emoji} alt="" />
-                <input type="text" placeholder='Type a message...' />
-                <img className='chat_header_ico1' src={send} alt="" />
+                <input type="text" placeholder='Type a message...' onChange={e => setInputmsg(e.target.value)} />
+                <button onClick={e => { e.preventDefault(); sendmsg(); }}>send</button>
+                {/* <img className='chat_header_ico1' src={send} alt=""  /> */}
             </div>
         </div >
     );

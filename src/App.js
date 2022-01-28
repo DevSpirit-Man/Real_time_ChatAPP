@@ -18,7 +18,7 @@ function App() {
           (<Login getuser={setgetuser} />) :
           (<div className="app__cont">
             <Leftbar avatar={photo}/>
-            <Chat />
+            <Chat userdata={user} />
           </div>)
       }
     </div>
