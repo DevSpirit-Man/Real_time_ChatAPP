@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../ico/logo.png'
+import logo from './ico/logo.png'
 import { getAuth, signInWithPopup,  } from "firebase/auth";
-import { provider } from '../firebase';
+import { provider } from './firebase';
 export const Login = (props) => {
     const loginstyle={
         display:'flex',

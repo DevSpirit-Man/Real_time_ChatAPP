@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: "AIzaSyBcSlQgIyVzkp63G69YZMClMAR_NTa-f2o",
-  authDomain: "whatsapp-clone-b61d1.firebaseapp.com",
-  projectId: "whatsapp-clone-b61d1",
-  storageBucket: "whatsapp-clone-b61d1.appspot.com",
-  messagingSenderId: "824318794037",
-  appId: "1:824318794037:web:7e37d3a262a76e3acf147c"
+  apiKey: "AIzaSyDNYUE4LU376cM3xII4_bwtJcQpkU2Cu18",
+  authDomain: "chat-app-f81cf.firebaseapp.com",
+  projectId: "chat-app-f81cf",
+  storageBucket: "chat-app-f81cf.appspot.com",
+  messagingSenderId: "471446611423",
+  appId: "1:471446611423:web:331b69352f8fad933e906a"
 };
 const app = initializeApp(firebaseConfig);
 export const db=getFirestore()

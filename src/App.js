@@ -1,15 +1,11 @@
 import './App.css';
-import { Leftbar } from './components/Leftbar'
-import Chat from './components/Chat'
+import Chat from './Chat'
 import { useState } from 'react';
-import { Login } from './components/Login';
+import { Login } from './Login';
 function App() {
   const [user, setUser] = useState(null)
-  const [photo,setphoto]=useState(null)
   function setgetuser(e) {
-    // console.log(e);
     setUser(e)
-    setphoto(e.photoURL)
   }
   return (
     <div className="App">
@@ -17,8 +13,7 @@ function App() {
         (!user) ?
           (<Login getuser={setgetuser} />) :
           (<div className="app__cont">
-            <Leftbar avatar={photo}/>
-            <Chat userdata={user} />
+            <Chat photo={user.photoURL} name={user.displayName} />
           </div>)
       }
     </div>
