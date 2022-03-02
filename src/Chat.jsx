@@ -21,7 +21,7 @@ function Chat(props) {
         () => {
             onSnapshot(q, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
         }
-        , [q]);
+        , []);
     async function sendMessage() {
         const msg = input;
         setInput("")
