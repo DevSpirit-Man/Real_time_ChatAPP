@@ -33,10 +33,10 @@ function Chat(props) {
         });
         // updateScroll()
     }
-    // function updateScroll(){
-    //     var element = document.getElementById("custom");
-    //     element.scrollTop = element.scrollHeight;
-    // }
+    function updateScroll(){
+        var element = document.getElementById("custom");
+        element.scrollTop = element.scrollHeight;
+    }
     function handlefiles(e) {
         if (e.target.files[0].type === "image/png" || e.target.files[0].type === "application/pdf" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/jpeg") {
             upload(e.target.files[0]);
@@ -86,13 +86,7 @@ function Chat(props) {
                         <h5>{props.name}</h5>
                     </div>
                 </div>
-                {/* <div className="chat__header__logosec">
-                    <img className='chat_header_ico' src={attach} alt="" />
-                    <img className='chat_header_ico' src={menu} alt="" />
-                </div> */}
             </div>
-
-
 
             <div className="chat__body" id="custom">
                 {
