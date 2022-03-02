@@ -98,7 +98,7 @@ function Chat(props) {
                                     <h5 style={{ fontSize: '15px', fontWeight: '500' }}>{item.name}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{ width: '50%', height: '95px', border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)' }}>
+                                            <div className="file" style={{border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)',paddingBottom:'9px' ,width:'80%',overflowX:'scroll'}}>
                                                 <div className="headerfileformat" style={{ marginTop: '9px' }}>
                                                     <h5>File Shared : </h5>
                                                 </div>
