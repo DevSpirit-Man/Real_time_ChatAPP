@@ -7,13 +7,13 @@
 }
 .chat__header{
     width: inherit;
-    background-color: #ededed;
-    height: 65.29px;
-    border-bottom: 2px solid rgb(230, 230, 230);
+    background-color: rgb(248, 248, 248);
+    height: 57.29px;
+    border-bottom: 1px solid rgb(241, 241, 241);
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 29px;
+    padding: 0 25px;
     user-select: none;
 }
 .chat__footer{
@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: space-around;
     background-color: #ededed;
-    border-top: 2px solid rgb(230, 230, 230);
+    border-top: 1px solid rgb(241, 241, 241);
     position: absolute;
     bottom: 0;
     height: 57.29px;
@@ -53,6 +53,7 @@
     display: flex;
     flex-direction: column;
     width: 199px;
+    margin-left: -5px;
 }
 .chat__header__name p{
     font-size: 11px;
@@ -78,14 +79,13 @@
 
 
 .messagebox{
-    background-color: #86bbec;
     width: fit-content;
-    max-width: 65%;
+    max-width: 85%;
     padding:3px 15px;
     border-radius: 14px;
     position: relative;
     padding-bottom: 7px;
-    margin-left: 1vw;
+    margin-left: 7px;
 }
 .timestamp{
     font-size: 9.5px;
@@ -101,32 +101,20 @@
     user-select: none;
 }
 .chat__body__message{
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    color:gray;
     margin: 5px 0;
     margin-bottom: -2px;
 }
 .messageboxcont{
     margin-left: 12px;
-    margin-top: 9px;
+    margin-top: 19px;
+    margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
 }
-.messageboxcontright{
-    margin-left: auto;
-    margin-top: 9px;
-    width: fit-content;
-}
-.messageboxright{
-    background-color: #86bbec;
-    width: fit-content;
-    max-width: 50%;
-    padding:3px 15px;
-    border-radius: 14px;
-    position: relative;
-    padding-bottom: 7px;
-    margin-left: auto;
-    margin-right: 9px;
-    margin-top: 18px;
-}
+
 .chat__body{
     overflow-y: scroll;
     /* border: 2px solid red; */
