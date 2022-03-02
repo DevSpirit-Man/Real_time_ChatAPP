@@ -31,7 +31,7 @@ function Chat(props) {
             userimg: props.photo,
             timestamp: serverTimestamp()
         });
-        // updateScroll()
+        updateScroll()
     }
     function updateScroll(){
         var element = document.getElementById("custom");
