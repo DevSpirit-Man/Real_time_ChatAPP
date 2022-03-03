@@ -10,9 +10,11 @@ import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { LinearProgress } from '@mui/material';
 function Chat(props) {
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState(null)
     const [message, setMessage] = useState([])
+    const [uploading,setUploading]=useState(false)
     const q = query(collection(db, "messages"), orderBy('timestamp', 'asc'));
     function inputhandler(e) {
         setInput(e.target.value)
@@ -22,6 +24,9 @@ function Chat(props) {
             onSnapshot(q, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
         }
         , []);
+        useEffect(()=>{
+            updateScroll()
+        },[message])
     async function sendMessage() {
         const msg = input;
         setInput("")
@@ -33,7 +38,7 @@ function Chat(props) {
         });
         updateScroll()
     }
-    function updateScroll(){
+    function updateScroll() {
         var element = document.getElementById("custom");
         element.scrollTop = element.scrollHeight;
     }
@@ -51,6 +56,12 @@ function Chat(props) {
     function upload(file) {
         const storageRef = ref(storage, 'files/' + file.name);
         const uploadTask = uploadBytesResumable(storageRef, file);
+        setUploading(true);
+        toast('Uploading your file ...', {
+            icon: '⏳',
+            duration: 2000,
+            position: 'top-center',
+          });
         uploadTask.on('state_changed',
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -62,6 +73,7 @@ function Chat(props) {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     const msg = downloadURL;
                     sendfile()
+                    setUploading(false)
                     async function sendfile() {
                         await addDoc(collection(db, 'messages'), {
                             name: props.name,
@@ -70,6 +82,10 @@ function Chat(props) {
                             timestamp: serverTimestamp()
                         });
                     }
+                    toast.success('Done uploading', {
+                        duration: 1200,
+                        position: 'top-center',
+                    });
                 });
             }
         );
@@ -87,6 +103,11 @@ function Chat(props) {
                     </div>
                 </div>
             </div>
+            <div className="uploadprogress">
+                {
+            uploading?(<LinearProgress sx={{height:'4px'}} /> ):(<></>)
+                }
+            </div>
 
             <div className="chat__body" id="custom">
                 {
@@ -98,7 +119,7 @@ function Chat(props) {
                                     <h5 style={{ fontSize: '15px', fontWeight: '500' }}>{item.name}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)',paddingBottom:'9px' ,width:'80%',overflowX:'scroll'}}>
+                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px', width: '80%', overflowX: 'scroll' }}>
                                                 <div className="headerfileformat" style={{ marginTop: '9px' }}>
                                                     <h5>File Shared : </h5>
                                                 </div>
@@ -119,13 +140,21 @@ function Chat(props) {
                     })
                 }
             </div>
+           
             <div className="chat__footer">
                 <input value={input} type="text" placeholder='Type a message...' onChange={inputhandler} />
                 <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
                 <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '25px' }} src={attach} alt="" /></label>
-                <Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px' }} size="small">
-                    <p style={{ fontWeight: 'bold' }}>send</p>
-                </Button>
+
+                {
+                    input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px' }} size="small">
+                        <p style={{ fontWeight: 'bold' }}>send</p>
+                    </Button>) : (<Button disabled variant="outlined" style={{ height: '35px' }} size="small">
+                        <p style={{ fontWeight: 'bold' }}>send</p>
+                    </Button>)
+                }
+
+
             </div>
         </div >
     );
