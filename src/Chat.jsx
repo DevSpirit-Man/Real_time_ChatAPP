@@ -4,17 +4,18 @@ import './css/chatpage.css'
 import toast, { Toaster } from 'react-hot-toast';
 import Button from '@mui/material/Button';
 import attach from './ico/attach.png'
-// import menu from './ico/menu.png'
 import { useState } from 'react';
 import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { LinearProgress } from '@mui/material';
+import Navbar from './Navbar'
+
 function Chat(props) {
-    const [input, setInput] = useState(null)
+    const [input, setInput] = useState("")
     const [message, setMessage] = useState([])
-    const [uploading,setUploading]=useState(false)
+    const [uploading, setUploading] = useState(false)
     const q = query(collection(db, "messages"), orderBy('timestamp', 'asc'));
     function inputhandler(e) {
         setInput(e.target.value)
@@ -24,9 +25,9 @@ function Chat(props) {
             onSnapshot(q, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
         }
         , []);
-        useEffect(()=>{
-            updateScroll()
-        },[message])
+    useEffect(() => {
+        updateScroll()
+    }, [message])
     async function sendMessage() {
         const msg = input;
         setInput("")
@@ -61,7 +62,7 @@ function Chat(props) {
             icon: '⏳',
             duration: 2000,
             position: 'top-center',
-          });
+        });
         uploadTask.on('state_changed',
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -94,18 +95,11 @@ function Chat(props) {
         <div className='chatbox'>
             <Toaster />
             <div className="chat__header">
-                <div className="siginmenu" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '-9px' }}>
-                    <div className="avatar__chat__header">
-                        <img src={props.photo} alt="" />
-                    </div>
-                    <div className="chat__header__name">
-                        <h5>{props.name}</h5>
-                    </div>
-                </div>
+                <Navbar name={props.name} logout={props.logout} uimg={props.photo}></Navbar>
             </div>
             <div className="uploadprogress">
                 {
-            uploading?(<LinearProgress sx={{height:'4px'}} /> ):(<></>)
+                    uploading ? (<LinearProgress sx={{ height: '4px' }} />) : (<></>)
                 }
             </div>
 
@@ -123,7 +117,7 @@ function Chat(props) {
                                                 <div className="headerfileformat" style={{ marginTop: '9px' }}>
                                                     <h5>File Shared : </h5>
                                                 </div>
-                                                <a href={item.text} className="chat__body__message">
+                                                <a href={item.text} target="_blank" className="chat__body__message" rel="noreferrer">
                                                     {item.text}
                                                 </a>
                                             </div>
@@ -140,16 +134,16 @@ function Chat(props) {
                     })
                 }
             </div>
-           
+
             <div className="chat__footer">
                 <input value={input} type="text" placeholder='Type a message...' onChange={inputhandler} />
                 <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
                 <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '25px' }} src={attach} alt="" /></label>
 
                 {
-                    input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px' }} size="small">
+                    input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px',marginRight:'9px' }} size="small">
                         <p style={{ fontWeight: 'bold' }}>send</p>
-                    </Button>) : (<Button disabled variant="outlined" style={{ height: '35px' }} size="small">
+                    </Button>) : (<Button disabled variant="outlined" style={{ height: '35px',marginRight:'9px' }} size="small">
                         <p style={{ fontWeight: 'bold' }}>send</p>
                     </Button>)
                 }

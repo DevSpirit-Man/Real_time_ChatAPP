@@ -7,13 +7,16 @@ function App() {
   function setgetuser(e) {
     setUser(e)
   }
+  function handlelogout(){
+    setUser(null)
+  }
   return (
     <div className="App">
       {
         (!user) ?
           (<Login getuser={setgetuser} />) :
           (<div className="app__cont">
-            <Chat photo={user.photoURL} name={user.displayName} />
+            <Chat photo={user.photoURL} logout={handlelogout} name={user.displayName} />
           </div>)
       }
     </div>

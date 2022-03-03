@@ -60,11 +60,14 @@
     margin-top: 5px;
     color: #888888;
 }
-.chat__footer{
+.chat__footer {
+    margin:auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    gap: 6px;
+    padding-left: 3px;
 }
 .chat__footer input{
     width: 90%;
@@ -112,7 +115,6 @@
     margin-bottom: -2px;
 }
 .messageboxcont{
-    margin-left: 12px;
     margin-top: 19px;
     margin-bottom: 9px;
     display: flex;
@@ -124,7 +126,7 @@
     overflow-y: scroll;
     overflow-x:hidden;
     /* border: 2px solid red; */
-    height: 80%;
+    height:83%;
 }
 .chat__body::-webkit-scrollbar-track
 {
