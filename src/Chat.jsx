@@ -50,7 +50,8 @@ function Chat(props) {
         element.scrollTop = element.scrollHeight;
     }
     function handlefiles(e) {
-        if (e.target.files[0].type === "image/png" || e.target.files[0].type === "application/pdf" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/jpeg") {
+        console.log(e.target.files[0].type);
+        if (e.target.files[0].type === "image/png" || e.target.files[0].type === "application/pdf" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/jpeg"|| e.target.files[0].type === "video/mp4" || e.target.files[0].type === "audio/mpeg") {
             upload(e.target.files[0]);
         }
         else {
