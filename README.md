@@ -3,7 +3,7 @@
 features:
 - Login using Google
 - Realtime chat update
-- File uplaod and send
+- File upload and send
 - Create rooms and join with friends
 - Logout or switch rooms
 
