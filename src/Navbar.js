@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import './css/chatpage.css'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 export default function AccountMenu(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -32,7 +33,7 @@ export default function AccountMenu(props) {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 38, height: 35, marginLeft: '-19px' }} src={props.uimg}></Avatar>
+                        <Avatar sx={{ width: 38, height: 37, marginLeft: '-19px' }} src={props.uimg}></Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -72,14 +73,26 @@ export default function AccountMenu(props) {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem onClick={() => handleLogout()}>
+                    <ArrowBackIcon outlined color="disabled" sx={{marginLeft:'-6px'}}>
+                        <Logout fontSize="small" />
+                    </ArrowBackIcon >
+                    Switch Room
+                </MenuItem>
+                <MenuItem onClick={() => handleLogout()}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon >
                     Logout
                 </MenuItem>
             </Menu>
+            <div className="roomanduser">
             <div className="chat__header__name">
                 <h5 style={{ marginLeft: '19px' }}>{props.name}</h5>
+            </div>
+            <div className="roomidtext" style={{display:'flex',flexDirection:'row',alignItems:'center',width:'fit-content',marginRight:'39px',marginLeft:'15px',marginTop:'6px'}}>
+                <h6 style={{fontSize:'12.5px',color:'#676565'}}> Room id: </h6>
+                <p style={{fontSize:'12.1px',marginLeft:'4px',userSelect:'all',color:'#676565'}}>{props.roomid}</p>
+            </div>
             </div>
         </React.Fragment>
     );

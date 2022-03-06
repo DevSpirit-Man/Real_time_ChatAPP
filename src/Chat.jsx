@@ -16,13 +16,20 @@ function Chat(props) {
     const [input, setInput] = useState("")
     const [message, setMessage] = useState([])
     const [uploading, setUploading] = useState(false)
-    const q = query(collection(db, "messages"), orderBy('timestamp', 'asc'));
+    // const q = query(collection(db, "messages"), orderBy('timestamp', 'asc'));
+    const qr = query(collection(db, props.roomid), orderBy('timestamp', 'asc'));
+    // const q1 = query(collection(db, "messages"),where(documentId(),'==', '3PPly1FEJjtJntqPEFAb'));
+    // const document=doc(db, "messages", "153yJtULNbDsTSRSfdCR");
+    // getDoc(document).then((e)=>{
+    //     console.log(e.data());
+    // })
     function inputhandler(e) {
         setInput(e.target.value)
     }
+    
     useEffect(
         () => {
-            onSnapshot(q, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
+            onSnapshot(qr, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
         }
         , []);
     useEffect(() => {
@@ -31,13 +38,12 @@ function Chat(props) {
     async function sendMessage() {
         const msg = input;
         setInput("")
-        await addDoc(collection(db, 'messages'), {
+        await addDoc(collection(db, props.roomid), {
             name: props.name,
             text: msg,
             userimg: props.photo,
             timestamp: serverTimestamp()
         });
-        updateScroll()
     }
     function updateScroll() {
         var element = document.getElementById("custom");
@@ -95,7 +101,7 @@ function Chat(props) {
         <div className='chatbox'>
             <Toaster />
             <div className="chat__header">
-                <Navbar name={props.name} logout={props.logout} uimg={props.photo}></Navbar>
+                <Navbar name={props.name} logout={props.logout} uimg={props.photo} roomid={props.roomid}></Navbar>
             </div>
             <div className="uploadprogress">
                 {

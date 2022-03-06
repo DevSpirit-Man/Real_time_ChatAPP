@@ -52,7 +52,7 @@
 .chat__header__name{
     display: flex;
     flex-direction: column;
-    width: 199px;
+    width: 299px;
     margin-left: -5px;
 }
 .chat__header__name p{
@@ -79,6 +79,7 @@
     padding-left: 10px;
     border:2px solid rgb(230, 230, 230);
     color: rgb(109, 109, 109);
+    margin-left: 5px;
 }
 @media screen and (max-width:420px){
     .chat__footer input{
