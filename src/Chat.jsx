@@ -83,7 +83,7 @@ function Chat(props) {
                     sendfile()
                     setUploading(false)
                     async function sendfile() {
-                        await addDoc(collection(db, 'messages'), {
+                        await addDoc(collection(db, props.roomid), {
                             name: props.name,
                             text: msg,
                             userimg: props.photo,
