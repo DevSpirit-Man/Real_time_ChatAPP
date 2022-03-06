@@ -76,7 +76,7 @@ export default function AccountMenu(props) {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem onClick={() => handleroomswitch()}>
-                    <ArrowBackIcon outlined color="disabled" sx={{marginLeft:'-6px'}}>
+                    <ArrowBackIcon color="disabled" sx={{marginLeft:'-2px'}}>
                         <Logout fontSize="small" />
                     </ArrowBackIcon >
                     Switch Room

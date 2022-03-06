@@ -61,6 +61,11 @@ function Chat(props) {
             });
         }
     }
+    function handleEnterButton(e){
+        if(e.key==="Enter"){
+            sendMessage();
+        }
+    }
     function upload(file) {
         const storageRef = ref(storage, 'files/' + file.name);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -112,7 +117,7 @@ function Chat(props) {
 
             <div className="chat__body" id="custom">
                 {
-                    message.map(item => {
+                    message.map((item,index) => {
                         return (
                             <div className="messageboxcont">
                                 <img style={{ width: '38px', borderRadius: '100%' }} src={item.userimg} alt="" />
@@ -120,16 +125,16 @@ function Chat(props) {
                                     <h5 style={{ fontSize: '15px', fontWeight: '500' }}>{item.name}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px', width: '80%', overflowX: 'scroll' }}>
+                                            <div  className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px', width: '80%', overflowX: 'scroll' }}>
                                                 <div className="headerfileformat" style={{ marginTop: '9px' }}>
                                                     <h5>File Shared : </h5>
                                                 </div>
-                                                <a href={item.text} target="_blank" className="chat__body__message" rel="noreferrer">
+                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer">
                                                     {item.text}
                                                 </a>
                                             </div>
                                         ) : (
-                                            <p className="chat__body__message">
+                                            <p key={index} className="chat__body__message">
                                                 {item.text}
                                             </p>
                                         )
@@ -143,8 +148,8 @@ function Chat(props) {
             </div>
 
             <div className="chat__footer">
-                <input value={input} type="text" placeholder='Type a message...' onChange={inputhandler} />
-                <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
+                <input value={input} type="text" placeholder='Type a message...' onKeyPress={(e)=>handleEnterButton(e)} onChange={inputhandler} />
+                <input type="file" name="" onChange={(e) => handlefiles(e)}  id="filein" hidden />
                 <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '25px' }} src={attach} alt="" /></label>
 
                 {

@@ -8,11 +8,14 @@ export const Login = (props) => {
     const loginstyle = {
         display: 'flex',
         flexDirection: 'column',
-        width: '90px',
+        width: 'fit-content',
         margin: 'auto',
         justifyContent: 'center',
         alignItems:'center',
-        height: '70vh',
+        height: 'fit-content',
+        padding:'92px 31px',
+        backgroundColor:'white',
+        borderRadius:'14px'
     }
     async function senduserdetails(e) {
         e.preventDefault();
@@ -25,7 +28,6 @@ export const Login = (props) => {
         <div className='login' style={loginstyle}>
             <img style={{width:'120px'}} src={logo} alt="" />
             <p style={{margin:'15px 0',fontSize:'22px',fontWeight:'400',color:'#6e6d6d',width:"295px",textAlign:'center'}}>Chat App</p>
-            {/* <button style={{marginTop:'10px',backgroundColor:'black',color:'white',height:'36px',border:'none',outline:'none',width:'99px',cursor:'pointer',fontSize:'14px',borderRadius:'6px'}} >LogIn</button> */}
             <Button sx={{ marginTop: '21px',width:'fit-content' }} onClick={senduserdetails} variant="outlined" size="large">
                 <img style={{width:'20px'}} src={gicon} alt="" />
                 <p style={{width:'190px',color:'#6e6d6d',fontWeight:'bold',marginLeft:'3px'}}>Login using Google</p>
