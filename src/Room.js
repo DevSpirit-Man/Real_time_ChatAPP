@@ -7,7 +7,7 @@ export const Room = (props) => {
         props.roomfunc(roomid)
     }
     function handleGenerate(){
-        const random=new Date().getMonth()+new Date().getHours()+new Date().getSeconds()+new Date().getFullYear()+props.name.slice(0,3)+props.photo.slice(9,18).toString()
+        const random=new Date().getHours().toString()+new Date().getMinutes().toString()+new Date().getSeconds().toString()+props.name.slice(0,Math.floor(Math.random()*4))+props.photo.slice(9,18).toString()
         setRoomid(random)
     }
   return (
