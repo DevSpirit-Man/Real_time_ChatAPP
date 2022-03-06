@@ -101,11 +101,11 @@ function Chat(props) {
         <div className='chatbox'>
             <Toaster />
             <div className="chat__header">
-                <Navbar name={props.name} logout={props.logout} uimg={props.photo} roomid={props.roomid}></Navbar>
+                <Navbar hadleswitch={props.switchroom} name={props.name} logout={props.logout} uimg={props.photo} roomid={props.roomid}></Navbar>
             </div>
             <div className="uploadprogress">
                 {
-                    uploading ? (<LinearProgress sx={{ height: '4px' }} />) : (<></>)
+                    uploading ? (<LinearProgress sx={{ height: '3px' }} />) : (<></>)
                 }
             </div>
 

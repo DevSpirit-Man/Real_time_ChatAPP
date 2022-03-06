@@ -21,6 +21,9 @@ export default function AccountMenu(props) {
     function handleLogout(){
         props.logout()
     }
+    function handleroomswitch(){
+        props.hadleswitch()
+    }
     return (
         <React.Fragment>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -72,7 +75,7 @@ export default function AccountMenu(props) {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={() => handleLogout()}>
+                <MenuItem onClick={() => handleroomswitch()}>
                     <ArrowBackIcon outlined color="disabled" sx={{marginLeft:'-6px'}}>
                         <Logout fontSize="small" />
                     </ArrowBackIcon >

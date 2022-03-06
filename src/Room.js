@@ -6,6 +6,10 @@ export const Room = (props) => {
     function handleRoomID(){
         props.roomfunc(roomid)
     }
+    function handleGenerate(){
+        const random=new Date().getMonth()+new Date().getHours()+new Date().getSeconds()+new Date().getFullYear()+props.name.slice(0,3)+props.photo.slice(9,18).toString()
+        setRoomid(random)
+    }
   return (
     <div style={{display:'flex',flexDirection:'column',rowGap:'21px',alignItems:'center'}}>
         {/* <Input  placeholder="Enter a room Id" inputProps={ariaLabel} /> */}
@@ -22,6 +26,7 @@ export const Room = (props) => {
           value={roomid}
           onChange={(e)=>{setRoomid(e.target.value)}}
         />
+        <Button onClick={()=>{handleGenerate()}}>Generate one</Button>
         {
             roomid?( <Button onClick={()=>{handleRoomID()}} sx={{width:"179px",margin:'auto'}} variant="outlined">Join Room</Button>):( <Button disabled sx={{width:"179px",margin:'auto'}} variant="outlined">Join Room</Button>)
         }

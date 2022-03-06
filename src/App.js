@@ -16,6 +16,9 @@ function App() {
   function roomfunc(e) {
     setroom(e)
   }
+  function roomswitch(){
+    setroom(null)
+  }
  
   return (
     <div className="App">
@@ -23,7 +26,7 @@ function App() {
         (!user) ?
           (<Login getuser={setgetuser} />) :
           (room ? (<div className="app__cont">
-            <Chat photo={user.photoURL} logout={handlelogout} name={user.displayName} roomid={room} />
+            <Chat photo={user.photoURL} logout={handlelogout} name={user.displayName} roomid={room} switchroom={roomswitch} />
           </div>) : <Room roomfunc={roomfunc} photo={user.photoURL} name={user.displayName} />
           )
       }
