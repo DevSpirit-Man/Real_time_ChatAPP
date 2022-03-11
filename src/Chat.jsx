@@ -36,6 +36,7 @@ function Chat(props) {
         updateScroll()
     }, [message])
     async function sendMessage() {
+        if(input){
         const msg = input;
         setInput("")
         await addDoc(collection(db, props.roomid), {
@@ -44,6 +45,7 @@ function Chat(props) {
             userimg: props.photo,
             timestamp: serverTimestamp()
         });
+    }
     }
     function updateScroll() {
         var element = document.getElementById("custom");
