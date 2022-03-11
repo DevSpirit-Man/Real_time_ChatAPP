@@ -1,5 +1,5 @@
 ### Chat Application using reactjs and google-firebase
-##### Lets go chat !! https://nisabmohd.github.io/chat-app/
+##### Lets go chat !! https://nisabmohd.github.io/chatzoid
 features:
 - Login using Google
 - Realtime chat update
