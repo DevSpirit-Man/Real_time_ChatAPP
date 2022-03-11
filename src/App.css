@@ -1,5 +1,7 @@
 .App {
-  background-image: url('./imgs/bg.jpg');
+  /* background-image: url('./imgs/bg1.jpg');
+  background-position: center; */
+  background-color: rgb(242, 243, 245);
   height: 100vh;
   display: flex;
   justify-content: center;

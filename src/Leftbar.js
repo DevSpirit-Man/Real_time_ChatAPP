@@ -13,6 +13,7 @@ export const Leftbar = (props) => {
         onSnapshot(qr, (snapshot) => setUser(snapshot.docs.map((doc) => doc.data().name)))
     }
     , []);
+    //#F2F3F5
   return (
     <div style={{ backgroundColor: '#F2F3F5', width: '272px', borderRight: '2px solid rgb(234, 234, 234)' }}>
       <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid rgb(234, 234, 234)', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: 'rgb(237 236 236)' }}>
@@ -20,7 +21,7 @@ export const Leftbar = (props) => {
         <h4 style={{ marginLeft: '5px', fontSize: '14.85px', marginTop: '-4px', color: 'rgb(44, 44, 44)' }}>Chatzoid</h4>
       </div>
       <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 22px', marginTop: '29px' }}>
-        <h5 style={{ color: '#747F8D' }}>Room id</h5>
+        <h5 style={{ color: '#747F8D',fontSize:'14px' }}>Room id</h5>
       </div>
       <div className="rommspecificidandp" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '22px' }}>
         <TagIcon style={{ marginLeft: '18px', width: '19px' }} color="action"></TagIcon>
@@ -40,7 +41,7 @@ export const Leftbar = (props) => {
         }
       </div>
       <div className="switchroom" style={{width:'fit-content',margin:'auto'}}>
-      <Button onClick={()=>{props.switchroom()}} size="small" sx={{fontWeight:'bold'}}>
+      <Button onClick={()=>{props.switchroom()}} size="small" sx={{fontWeight:'500'}}>
           switch room
         </Button>
       </div>
