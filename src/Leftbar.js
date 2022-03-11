@@ -29,26 +29,26 @@ export const Leftbar = (props) => {
 
       </div>
       
-      <div className="sepater" style={{ marginTop: '29px',overflowY:'scroll',height:'69%' }}>
+      <div className="sepater" style={{ marginTop: '29px',overflowY:'scroll',height:'399px'}}>
         {
          Array.from(new Set(user)).map((item) => {
             return (
-              <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '9px', marginBottom: '15px' }}>
-                <img style={{ width: '40px', borderRadius: '100%', marginLeft: '22px' }} src={`https://avatars.dicebear.com/api/male/${item}.svg?&background=white&skin=light&mouth=smile`} alt="" />
-                <p style={{ color: 'rgb(44, 44, 44)', fontSize: '14.5px', fontWeight: '600', marginLeft: '12px' }}>{item}</p>
+              <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '9px', marginBottom: '18px' }}>
+                <img style={{ width: '40px', borderRadius: '100%', marginLeft: '22px' }} src={`https://avatars.dicebear.com/api/male/${item}.svg?&skin=light&mouth=smile`} alt="" />
+                <p style={{ color: 'rgb(44, 44, 44)', fontSize: '14.5px', fontWeight: '600', marginLeft: '12px' }}>{item.split(' ')[0]+" "+item.split(' ')[1]}</p>
               </div>)
           })
         }
       </div>
-      <div className="switchroom" style={{width:'fit-content',margin:'auto'}}>
+      <div className="switchroom" style={{width:'245px',position:'absolute',bottom:'55px',display:'flex',justifyContent:'center'}}>
       <Button onClick={()=>{props.switchroom()}} size="small" sx={{fontWeight:'500'}}>
           switch room
         </Button>
       </div>
       <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '52px', backgroundColor: 'rgb(237 236 236)', borderTop: '2px solid rgb(234, 234, 234)', width: '100%' }}>
         <img src={props.photo} style={{ width: '35px', borderRadius: '100%', marginLeft: '14px' }} alt="" />
-        <h5 style={{ marginLeft: '12px', color: 'rgb(44, 44, 44)' }}>{props.name}</h5>
-        <button onClick={()=>{props.logout();}} style={{cursor:'pointer',width:'fit-content', marginLeft: '59px',outline:'none',border:'none',backgroundColor:'transparent' }}><LogoutIcon color="action" style={{ width: '20px'}}></LogoutIcon></button>
+        <h5 style={{ marginLeft: '12px', color: 'rgb(44, 44, 44)' }}>{props.name.split(' ')[0]}</h5>
+        <button onClick={()=>{props.logout();}} style={{cursor:'pointer',width:'fit-content', marginLeft: '59px',outline:'none',border:'none',backgroundColor:'transparent',position:'absolute',left:'139px' }}><LogoutIcon color="action" style={{ width: '20px'}}></LogoutIcon></button>
       </div>
     </div>
   )
