@@ -3,19 +3,20 @@ import logo from './ico/logo.png'
 import { getAuth, signInWithPopup, } from "firebase/auth";
 import { provider } from './firebase';
 import Button from '@mui/material/Button';
-import gicon from './ico/gicon.png'
+import GoogleIcon from '@mui/icons-material/Google';
 export const Login = (props) => {
     const loginstyle = {
         display: 'flex',
         flexDirection: 'column',
-        width: 'fit-content',
+        width: '492px',
         margin: 'auto',
         justifyContent: 'center',
         alignItems:'center',
         height: 'fit-content',
-        padding:'92px 31px',
-        backgroundColor:'white',
-        borderRadius:'14px'
+        padding:'62px 21px',
+        backgroundColor:'#f1f7ff',
+        borderRadius:'8px',
+        textAlign:'center'
     }
     async function senduserdetails(e) {
         e.preventDefault();
@@ -27,10 +28,12 @@ export const Login = (props) => {
 
         <div className='login' style={loginstyle}>
             <img style={{width:'120px'}} src={logo} alt="" />
-            <p style={{margin:'15px 0',fontSize:'22px',fontWeight:'400',color:'#6e6d6d',width:"295px",textAlign:'center'}}>Chat App</p>
-            <Button sx={{ marginTop: '21px',width:'fit-content' }} onClick={senduserdetails} variant="outlined" size="large">
-                <img style={{width:'20px'}} src={gicon} alt="" />
-                <p style={{width:'190px',color:'#6e6d6d',fontWeight:'bold',marginLeft:'3px'}}>Login using Google</p>
+            <p style={{margin:'15px 0',fontSize:'22px',fontWeight:'400',color:'#6e6d6d',width:"295px",textAlign:'center'}}>Chatzoid</p>
+            <h2 style={{color:'#6e6d6d',fontWeight:'400'}}>Welcome Back!</h2>
+            <p style={{fontSize:'15px',width:'295px',marginTop:'9px',color:'#6e6d6d'}}>we are so exicted to see you again</p>
+            <Button variant="text" sx={{ marginTop: '21px',width:'fit-content' }} onClick={senduserdetails} size="large">
+                <GoogleIcon color="action" style={{width:'24px'}}></GoogleIcon>
+                <p style={{width:'190px',color:'#6e6d6d',fontWeight:'600',marginLeft:'3px',marginBottom:'-3px'}}>Login using Google</p>
             </Button>
         </div>
     );

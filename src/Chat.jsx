@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './css/chatbox.css'
 import './css/chatpage.css'
 import toast, { Toaster } from 'react-hot-toast';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import attach from './ico/attach.png'
 import { useState } from 'react';
 import { db, storage } from './firebase';
@@ -26,7 +26,7 @@ function Chat(props) {
     function inputhandler(e) {
         setInput(e.target.value)
     }
-    
+
     useEffect(
         () => {
             onSnapshot(qr, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
@@ -51,7 +51,7 @@ function Chat(props) {
     }
     function handlefiles(e) {
         console.log(e.target.files[0].type);
-        if (e.target.files[0].type === "image/png" || e.target.files[0].type === "application/pdf" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/jpeg"|| e.target.files[0].type === "video/mp4" || e.target.files[0].type === "audio/mpeg") {
+        if (e.target.files[0].type === "image/png" || e.target.files[0].type === "application/pdf" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/jpeg" || e.target.files[0].type === "video/mp4" || e.target.files[0].type === "audio/mpeg") {
             upload(e.target.files[0]);
         }
         else {
@@ -61,8 +61,8 @@ function Chat(props) {
             });
         }
     }
-    function handleEnterButton(e){
-        if(e.key==="Enter"){
+    function handleEnterButton(e) {
+        if (e.key === "Enter") {
             sendMessage();
         }
     }
@@ -107,7 +107,8 @@ function Chat(props) {
         <div className='chatbox'>
             <Toaster />
             <div className="chat__header">
-                <Navbar hadleswitch={props.switchroom} name={props.name} logout={props.logout} uimg={props.photo} roomid={props.roomid}></Navbar>
+                <Navbar roomid={props.roomid}>
+                </Navbar>
             </div>
             <div className="uploadprogress">
                 {
@@ -117,15 +118,16 @@ function Chat(props) {
 
             <div className="chat__body" id="custom">
                 {
-                    message.map((item,index) => {
+                    message.map((item, index) => {
+                        // props.arr.push(item.name)
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '38px', borderRadius: '100%' }} src={item.userimg} alt="" />
+                                <img style={{ width: '40px', borderRadius: '100%',marginTop:'-2px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&background=white&skin=light&mouth=smile`} alt="" />
                                 <div className="messagebox">
-                                    <h5 style={{ fontSize: '15px', fontWeight: '500' }}>{item.name}</h5>
+                                    <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div  className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px', width: '80%', overflowX: 'scroll' }}>
+                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px', width: '80%', overflowX: 'scroll' }}>
                                                 <div className="headerfileformat" style={{ marginTop: '9px' }}>
                                                     <h5>File Shared : </h5>
                                                 </div>
@@ -148,19 +150,21 @@ function Chat(props) {
             </div>
 
             <div className="chat__footer">
-                <input value={input} type="text" placeholder='Type a message...' onKeyPress={(e)=>handleEnterButton(e)} onChange={inputhandler} />
-                <input type="file" name="" onChange={(e) => handlefiles(e)}  id="filein" hidden />
-                <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '25px' }} src={attach} alt="" /></label>
+                <div className="forbginput chat__footer" >
 
-                {
-                    input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px',marginRight:'9px' }} size="small">
-                        <p style={{ fontWeight: 'bold' }}>send</p>
-                    </Button>) : (<Button disabled variant="outlined" style={{ height: '35px',marginRight:'9px' }} size="small">
-                        <p style={{ fontWeight: 'bold' }}>send</p>
-                    </Button>)
-                }
+                    <input value={input} type="text" placeholder='Type a message...' onKeyPress={(e) => handleEnterButton(e)} onChange={inputhandler} />
+                    <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
+                    <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '22px',marginTop:'3px' }} src={attach} alt="" /></label>
 
+                    {/* {
+                        input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px', marginRight: '9px' }} size="small">
+                            <p style={{ fontWeight: 'bold' }}>send</p>
+                        </Button>) : (<Button disabled variant="outlined" style={{ height: '35px', marginRight: '9px' }} size="small">
+                            <p style={{ fontWeight: 'bold' }}>send</p>
+                        </Button>)
+                    } */}
 
+                </div>
             </div>
         </div >
     );

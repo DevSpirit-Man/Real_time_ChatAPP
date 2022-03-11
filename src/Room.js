@@ -1,4 +1,4 @@
-import { Avatar, Button, Input, TextField } from '@mui/material'
+import { Avatar, Button, Input } from '@mui/material'
 import React, { useState } from 'react'
 
 export const Room = (props) => {
@@ -11,23 +11,14 @@ export const Room = (props) => {
         setRoomid(random)
     }
   return (
-    <div style={{display:'flex',flexDirection:'column',rowGap:'21px',alignItems:'center',backgroundColor:'white', padding:'72px 39px', borderRadius:'14px'}}>
+    <div style={{display:'flex',flexDirection:'column',rowGap:'21px',alignItems:'center',backgroundColor:'#f1f7ff', padding:'72px 39px', borderRadius:'8px',width:'422px'}}>
         {/* <Input  placeholder="Enter a room Id" inputProps={ariaLabel} /> */}
         <div className="usernameandall">
         <Avatar sx={{width:'105px',height:'105px'}} alt={props.name} src={props.photo} />
-        <h3 style={{margin:'auto',marginTop:'20px',color:'#5c5b5b',fontFamily:'sans-serif',marginBottom:'20px'}}>{props.name}</h3>
+        <h3 style={{margin:'auto',marginTop:'20px',color:'#5c5b5b',fontFamily:'sans-serif',marginBottom:'20px',fontWeight:'400'}}>{props.name}</h3>
         </div>
         <Input placeholder="Enter a room Id" sx={{width:'280px'}} value={roomid}
           onChange={(e)=>{setRoomid(e.target.value)}} />
-        {/* <TextField sx={{width:'280px'}}
-          id="standard-textarea"
-          label="Room Id"
-          placeholder="Enter a room Id"
-          multiline
-          variant="standard"
-          value={roomid}
-          onChange={(e)=>{setRoomid(e.target.value)}}
-        /> */}
         <Button onClick={()=>{handleGenerate()}}>Generate one</Button>
         {
             roomid?( <Button onClick={()=>{handleRoomID()}} sx={{width:"179px",margin:'auto'}} variant="outlined">Join Room</Button>):( <Button disabled sx={{width:"179px",margin:'auto'}} variant="outlined">Join Room</Button>)
