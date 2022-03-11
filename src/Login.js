@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './ico/logo.png'
 import { getAuth, signInWithPopup, } from "firebase/auth";
 import { provider } from './firebase';
 import Button from '@mui/material/Button';
