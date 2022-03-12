@@ -24,7 +24,17 @@
 }
 @media screen and (max-width:435px){
     .forbginput {
-        width: 81%;
+        width: 89%;
+    }
+}
+@media screen and (max-width:411px){
+    .forbginput {
+        width: 80%;
+    }
+}
+@media screen and (max-width:350px){
+    .forbginput {
+        width: 70%;
     }
 }
 .navbarmenu{
