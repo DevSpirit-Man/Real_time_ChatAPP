@@ -2,14 +2,13 @@ import React, { useEffect } from 'react';
 import './css/chatbox.css'
 import './css/chatpage.css'
 import toast, { Toaster } from 'react-hot-toast';
-// import Button from '@mui/material/Button';
 import attach from './ico/attach.png'
 import { useState } from 'react';
 import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { LinearProgress } from '@mui/material';
+import {  LinearProgress } from '@mui/material';
 import Navbar from './Navbar'
 
 function Chat(props) {
@@ -36,16 +35,16 @@ function Chat(props) {
         updateScroll()
     }, [message])
     async function sendMessage() {
-        if(input){
-        const msg = input;
-        setInput("")
-        await addDoc(collection(db, props.roomid), {
-            name: props.name,
-            text: msg,
-            userimg: props.photo,
-            timestamp: serverTimestamp()
-        });
-    }
+        if (input) {
+            const msg = input;
+            setInput("")
+            await addDoc(collection(db, props.roomid), {
+                name: props.name,
+                text: msg,
+                userimg: props.photo,
+                timestamp: serverTimestamp()
+            });
+        }
     }
     function updateScroll() {
         var element = document.getElementById("custom");
@@ -108,13 +107,13 @@ function Chat(props) {
     return (
         <div className='chatbox'>
             <Toaster />
-            <div className="chat__header">
-                <Navbar roomid={props.roomid}>
-                </Navbar>
+            <div className="chat__header" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                
+                <Navbar roomid={props.roomid}></Navbar>
             </div>
             <div className="uploadprogress">
                 {
-                    uploading ? (<LinearProgress sx={{ height: '3px' }} />) : (<></>)
+                    uploading ? (<LinearProgress sx={{ height: '2px' }} />) : (<></>)
                 }
             </div>
 
@@ -124,7 +123,8 @@ function Chat(props) {
                         // props.arr.push(item.name)
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '40px', borderRadius: '100%',marginTop:'-2px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&background=white&skin=light&mouth=smile`} alt="" />
+
+                                <img style={{ width: '40px', borderRadius: '10%', marginTop: '-10px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile`} alt="" />
                                 <div className="messagebox">
                                     <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name}</h5>
                                     {
@@ -153,10 +153,9 @@ function Chat(props) {
 
             <div className="chat__footer">
                 <div className="forbginput chat__footer" >
-
                     <input value={input} type="text" placeholder='Type a message...' onKeyPress={(e) => handleEnterButton(e)} onChange={inputhandler} />
                     <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
-                    <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '22px',marginTop:'3px' }} src={attach} alt="" /></label>
+                    <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '22px', marginTop: '3px' }} src={attach} alt="" /></label>
 
                     {/* {
                         input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px', marginRight: '9px' }} size="small">
