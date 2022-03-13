@@ -21,6 +21,9 @@
     .chat__body__message{
         width: 90%;
     }
+    .chat__footer {
+        width:98vw;
+    }
 }
 .navbarmenu{
     height:49px;
