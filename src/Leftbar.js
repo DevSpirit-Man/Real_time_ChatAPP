@@ -7,6 +7,7 @@ import { db } from './firebase';
 import { Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import './css/Responsive.css'
+import CloseIcon from '@mui/icons-material/Close';
 export const Leftbar = (props) => {
 const [show, setShow] = useState(false)
   const [user, setUser] = useState([])
@@ -29,9 +30,12 @@ const [show, setShow] = useState(false)
   return (
     <>
       <div className="hamburger">
-        <button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0' }} color="action"></MenuIcon></button>
+        {
+          (!show)?( <button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0',fontSize:'19px',marginBottom:'-4.5px' }} color="action"></MenuIcon></button>):( <button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><CloseIcon style={{fontSize:'19px',marginBottom:'-4.5px'}} color="action"></CloseIcon></button>)
+        }
+        
       </div>
-      <div className='leftbar' id='showleft' style={{ backgroundColor: '#F2F3F5', minWidth: '262px', borderRight: '2px solid rgb(234, 234, 234)', position: 'relative', height: '100%', flex: '0.17' }}>
+      <div className='leftbar' id='showleft' style={{ backgroundColor: '#F2F3F5', minWidth: '262px', borderRight: '2px solid rgb(234, 234, 234)', position: 'relative', height: '100%', flex: '0.17',transition:'all 0.25s' }}>
 
         <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid rgb(234, 234, 234)', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: 'rgb(237 236 236)' }}>
           <ChatIcon color="action" style={{ marginLeft: '27px', width: '22px' }}></ChatIcon>

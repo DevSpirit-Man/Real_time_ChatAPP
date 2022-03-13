@@ -5,7 +5,7 @@
     left:12px;
     display: none;
 }
-@media screen and (max-width:700px){
+@media screen and (max-width:762px){
     .leftbar{
         display: none;
     }
@@ -16,25 +16,10 @@
         margin-left: 34px;
     }
     .roomdetails{
-        padding-left: 39px;
+        padding-left: 42px;
     }
     .chat__body__message{
         width: 90%;
-    }
-}
-@media screen and (max-width:435px){
-    .forbginput {
-        width: 89%;
-    }
-}
-@media screen and (max-width:411px){
-    .forbginput {
-        width: 80%;
-    }
-}
-@media screen and (max-width:350px){
-    .forbginput {
-        width: 70%;
     }
 }
 .navbarmenu{
@@ -43,6 +28,6 @@
     border-bottom:1px solid #eaeaea;
     display:flex;
     align-items:center;
-    padding-left: 24px;
+    padding-left: 35px;
     width: 100%;
 }
