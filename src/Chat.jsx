@@ -8,9 +8,13 @@ import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import {  LinearProgress } from '@mui/material';
+import { LinearProgress } from '@mui/material';
 import Navbar from './Navbar'
-
+import ImageIcon from '@mui/icons-material/Image';
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import { red } from '@mui/material/colors';
 function Chat(props) {
     const [input, setInput] = useState("")
     const [message, setMessage] = useState([])
@@ -51,7 +55,7 @@ function Chat(props) {
         element.scrollTop = element.scrollHeight;
     }
     function handlefiles(e) {
-        console.log(e.target.files[0].type);
+        // console.log(e.target.files[0]);
         if (e.target.files[0].type === "image/png" || e.target.files[0].type === "application/pdf" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/jpeg" || e.target.files[0].type === "video/mp4" || e.target.files[0].type === "audio/mpeg") {
             upload(e.target.files[0]);
         }
@@ -93,7 +97,9 @@ function Chat(props) {
                             name: props.name,
                             text: msg,
                             userimg: props.photo,
-                            timestamp: serverTimestamp()
+                            timestamp: serverTimestamp(),
+                            filename: file.name,
+                            filetype: file.type
                         });
                     }
                     toast.success('Done uploading', {
@@ -108,7 +114,7 @@ function Chat(props) {
         <div className='chatbox'>
             <Toaster />
             <div className="chat__header" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                
+
                 <Navbar roomid={props.roomid}></Navbar>
             </div>
             <div className="uploadprogress">
@@ -124,17 +130,44 @@ function Chat(props) {
                         return (
                             <div className="messageboxcont">
 
-                                <img style={{ width: '40px', borderRadius: '10%', marginTop: '-10px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile`} alt="" />
+                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-10px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile`} alt="" />
                                 <div className="messagebox">
-                                    <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name}</h5>
+                                    <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px', width: '80%', overflowX: 'scroll' }}>
-                                                <div className="headerfileformat" style={{ marginTop: '9px' }}>
-                                                    <h5>File Shared : </h5>
+                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px',width:'245px',overflowX:'scroll' }}>
+                                                <div className="headerfileformat" style={{ marginTop: '9px', }}>
+                                                    <h5> Shared : </h5>
                                                 </div>
-                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer">
-                                                    {item.text}
+                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '9px',textDecoration:'none',MarginRight:'9px' }}>
+                                                    {
+
+                                                        (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
+                                                            <ImageIcon color="primary" style={{ marginRight: '9px' ,fontSize:'24px' }}></ImageIcon>
+                                                        ) : (<></>)
+                                                    }
+                                                    {
+
+                                                        (item.filetype === "application/pdf") ? (
+                                                            <PictureAsPdfIcon sx={{ color: red[700] }}  style={{ marginRight: '9px',fontSize:'24px' }}></PictureAsPdfIcon>
+                                                        ) : (<></>)
+                                                    }
+                                                    {
+
+                                                        (item.filetype === "audio/mpeg") ? (
+                                                            <LibraryMusicIcon color="success" style={{ marginRight: '9px',fontSize:'24px' }}></LibraryMusicIcon>
+                                                        ) : (<></>)
+                                                    }
+                                                    {
+
+                                                        (item.filetype === "video/mp4") ? (
+                                                            <VideocamIcon color="secondary" style={{ marginRight: '9px',fontSize:'24px' }}></VideocamIcon>
+                                                        ) : (<></>)
+                                                    }
+                                                    {
+                                                        (item.filetype)?(item.filename):(item.text)
+                                                    }
+                                                   
                                                 </a>
                                             </div>
                                         ) : (
