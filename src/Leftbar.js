@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import './css/Responsive.css'
 import CloseIcon from '@mui/icons-material/Close';
 export const Leftbar = (props) => {
-const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false)
   const [user, setUser] = useState([])
   const qr = query(collection(db, props.roomid));
   useEffect(
@@ -31,14 +31,14 @@ const [show, setShow] = useState(false)
     <>
       <div className="hamburger">
         {
-          (!show)?( <button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0',fontSize:'19px',marginBottom:'-4.5px' }} color="action"></MenuIcon></button>):( <button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><CloseIcon style={{fontSize:'19px',marginBottom:'-4.5px'}} color="action"></CloseIcon></button>)
+          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '19px', marginBottom: '-4.5px' }} color="action"></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><CloseIcon style={{ fontSize: '19px', marginBottom: '-4.5px' }} color="action"></CloseIcon></button>)
         }
-        
+
       </div>
-      <div className='leftbar' id='showleft' style={{ backgroundColor: '#F2F3F5', minWidth: '262px', borderRight: '2px solid rgb(234, 234, 234)', position: 'relative', height: '100%', flex: '0.17',transition:'all 0.25s' }}>
+      <div className='leftbar' id='showleft' style={{ backgroundColor: '#F2F3F5', minWidth: '262px', borderRight: '2px solid rgb(234, 234, 234)', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
 
         <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid rgb(234, 234, 234)', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: 'rgb(237 236 236)' }}>
-          <ChatIcon color="action" style={{ marginLeft: '27px', width: '22px' }}></ChatIcon>
+          <ChatIcon color="action" style={{ marginLeft: '30px', width: '22px' }}></ChatIcon>
           <h4 style={{ marginLeft: '5px', fontSize: '14.85px', marginTop: '-4px', color: 'rgb(44, 44, 44)' }}>Chatzoid</h4>
         </div>
         <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 29px', marginTop: '29px' }}>
@@ -50,7 +50,10 @@ const [show, setShow] = useState(false)
 
         </div>
 
-        <div className="sepater" style={{ marginTop: '29px', overflowY: 'scroll', height: '429px'}}>
+        <div className="sepater" style={{ marginTop: '29px', overflowY: 'scroll', height: '449px' }}>
+          <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 29px', marginTop: '9px', marginBottom: '23.5px' }}>
+            <h5 style={{ color: '#747F8D', fontSize: '14px' }}>participants</h5>
+          </div>
           {
             Array.from(new Set(user)).map((item) => {
               return (
@@ -61,7 +64,7 @@ const [show, setShow] = useState(false)
             })
           }
         </div>
-        <div className="switchroom" style={{ width: '100%', position: 'absolute', bottom: '55px', display: 'flex', justifyContent: 'center',alignItems:'center' }}>
+        <div className="switchroom" style={{ width: '100%', position: 'absolute', bottom: '55px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Button onClick={() => { props.switchroom() }} size="small" sx={{ fontWeight: '500' }}>
             switch room
           </Button>

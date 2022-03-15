@@ -90,6 +90,7 @@
     font-size: 13.55px;
     color:rgb(105, 105, 105);
     word-wrap: break-word;
+    padding-top: 5px;
 }
 .messageboxcont{
     width:80%;
@@ -97,7 +98,7 @@
     margin-bottom: 0px;
     display: flex;
     align-items: center;
-    margin-left: 25px;
+    margin-left: 35px;
     padding-top: 6px;
 }
 

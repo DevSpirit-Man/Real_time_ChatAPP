@@ -130,16 +130,16 @@ function Chat(props) {
                         return (
                             <div className="messageboxcont">
 
-                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-10px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile`} alt="" />
+                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-4px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile&background=white`} alt="" />
                                 <div className="messagebox">
                                     <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '14px',width:'245px',overflowX:'scroll' }}>
+                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '12px',width:'245px',overflowX:'scroll',marginBottom:'-13px' }}>
                                                 <div className="headerfileformat" style={{ marginTop: '9px', }}>
                                                     <h5> Shared : </h5>
                                                 </div>
-                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '9px',textDecoration:'none',MarginRight:'9px' }}>
+                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '5px',textDecoration:'none',MarginRight:'9px' }}>
                                                     {
 
                                                         (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
