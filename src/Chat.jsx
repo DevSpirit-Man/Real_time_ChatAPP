@@ -135,7 +135,7 @@ function Chat(props) {
                                     <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '9px',width:'245px',overflowX:'scroll' }}>
+                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '14px',width:'245px',overflowX:'scroll' }}>
                                                 <div className="headerfileformat" style={{ marginTop: '9px', }}>
                                                     <h5> Shared : </h5>
                                                 </div>

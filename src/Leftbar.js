@@ -50,7 +50,7 @@ const [show, setShow] = useState(false)
 
         </div>
 
-        <div className="sepater" style={{ marginTop: '29px', overflowY: 'scroll', height: '399px' }}>
+        <div className="sepater" style={{ marginTop: '29px', overflowY: 'scroll', height: '429px'}}>
           {
             Array.from(new Set(user)).map((item) => {
               return (
@@ -61,7 +61,7 @@ const [show, setShow] = useState(false)
             })
           }
         </div>
-        <div className="switchroom" style={{ width: '245px', position: 'absolute', bottom: '55px', display: 'flex', justifyContent: 'center' }}>
+        <div className="switchroom" style={{ width: '100%', position: 'absolute', bottom: '55px', display: 'flex', justifyContent: 'center',alignItems:'center' }}>
           <Button onClick={() => { props.switchroom() }} size="small" sx={{ fontWeight: '500' }}>
             switch room
           </Button>
