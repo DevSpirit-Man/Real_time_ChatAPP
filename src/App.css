@@ -1,12 +1,14 @@
 .App {
   /* background-image: url('./imgs/bg1.jpg');
   background-position: center; */
-  background-color: rgb(242, 243, 245);
+  /* background-color: rgb(37,35,41); */
+  background-color: rgb(18,15,19);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.25s;
+  color: white;
   -webkit-transition: all 0.15s;
 }
 .app__cont{

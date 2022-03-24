@@ -15,6 +15,7 @@ import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import { red } from '@mui/material/colors';
+import AttachmentIcon from '@mui/icons-material/Attachment';
 function Chat(props) {
     const [input, setInput] = useState("")
     const [message, setMessage] = useState([])
@@ -126,19 +127,14 @@ function Chat(props) {
             <div className="chat__body" id="custom">
                 {
                     message.map((item, index) => {
-                        // props.arr.push(item.name)
                         return (
                             <div className="messageboxcont">
-
-                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-4px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile&background=white`} alt="" />
+                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-4px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile`} alt="" />
                                 <div className="messagebox">
                                     <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                     {
                                         item.text.includes('http') ? (
-                                            <div className="file" style={{ border: '1.5px solid rgb(230, 230, 230)', borderRadius: '9px', padding: '2px 12px', marginTop: '5px', backgroundColor: 'rgb(255,255,255)', paddingBottom: '12px',width:'245px',overflowX:'scroll',marginBottom:'-13px' }}>
-                                                <div className="headerfileformat" style={{ marginTop: '9px', }}>
-                                                    <h5> Shared : </h5>
-                                                </div>
+                                            <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '12px',overflowX:'scroll',marginBottom:'-3px',zIndex:'99'}}>
                                                 <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '5px',textDecoration:'none',MarginRight:'9px' }}>
                                                     {
 
@@ -188,7 +184,7 @@ function Chat(props) {
                 <div className="forbginput chat__footer" >
                     <input value={input} type="text" placeholder='Type a message...' onKeyPress={(e) => handleEnterButton(e)} onChange={inputhandler} />
                     <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
-                    <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><img style={{ width: '22px', marginTop: '3px' }} src={attach} alt="" /></label>
+                    <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><AttachmentIcon/></label>
 
                     {/* {
                         input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px', marginRight: '9px' }} size="small">

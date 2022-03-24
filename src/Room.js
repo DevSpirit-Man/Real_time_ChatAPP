@@ -11,13 +11,13 @@ export const Room = (props) => {
         setRoomid(random)
     }
   return (
-    <div style={{display:'flex',flexDirection:'column',rowGap:'21px',alignItems:'center',backgroundColor:'white', padding:'43px 56px', borderRadius:'8px',width:'422px'}}>
+    <div style={{display:'flex',flexDirection:'column',rowGap:'21px',alignItems:'center',backgroundColor:'rgb(37,35,41)', padding:'43px 56px', borderRadius:'8px',width:'422px'}}>
         {/* <Input  placeholder="Enter a room Id" inputProps={ariaLabel} /> */}
         <div className="usernameandall">
         <Avatar sx={{width:'115px',height:'115px'}} alt={props.name} src={props.photo} />
-        <h2 style={{margin:'auto',marginTop:'20px',color:'#5c5b5b',fontFamily:'sans-serif',marginBottom:'10px',fontWeight:'400'}}>{props.name}</h2>
+        <h2 style={{margin:'auto',marginTop:'20px',color:'white',fontFamily:'sans-serif',marginBottom:'10px',fontWeight:'400'}}>{props.name}</h2>
         </div>
-        <Input placeholder="Enter a room Id" sx={{width:'280px'}} value={roomid}
+        <Input  placeholder="Enter a room Id" sx={{width:'280px',color:'white'}} value={roomid}
           onChange={(e)=>{setRoomid(e.target.value)}} />
         <Button sx={{fontWeight:'bold'}} onClick={()=>{handleGenerate()}}>Generate one</Button>
         {

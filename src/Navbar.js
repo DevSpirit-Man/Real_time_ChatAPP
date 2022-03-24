@@ -4,8 +4,8 @@ import TagIcon from '@mui/icons-material/Tag';
 export default function AccountMenu(props) {
     return (
         <div className='navbarmenu' >
-            <TagIcon color="action" ></TagIcon>
-            <h5 style={{marginLeft:'1.5px',color:'#3d3d3d'}}>{props.roomid}</h5>
+            <TagIcon color="diabled" ></TagIcon>
+            <h5 style={{marginLeft:'1.5px',color:'white'}}>{props.roomid}</h5>
         </div>
     );
 }
