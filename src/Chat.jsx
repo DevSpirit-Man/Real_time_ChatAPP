@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './css/chatbox.css'
 import './css/chatpage.css'
 import toast, { Toaster } from 'react-hot-toast';
-import attach from './ico/attach.png'
 import { useState } from 'react';
 import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
