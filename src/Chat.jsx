@@ -129,7 +129,7 @@ function Chat(props) {
                     message.map((item, index) => {
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-4px' }} src={`https://avatars.dicebear.com/api/male/${item.name}.svg?&skin=light&mouth=smile`} alt="" />
+                                <img style={{ width: '40px', borderRadius: '100%', marginTop: '-4px' }} src={`https://avatars.dicebear.com/api/gridy/${item.name}.svg`} alt="" />
                                 <div className="messagebox">
                                     <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                     {

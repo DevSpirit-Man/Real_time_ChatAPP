@@ -58,7 +58,7 @@ export const Leftbar = (props) => {
             Array.from(new Set(user)).map((item) => {
               return (
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '9px', marginBottom: '18px' }}>
-                  <img style={{ width: '40px', borderRadius: '100%', marginLeft: '22px' }} src={`https://avatars.dicebear.com/api/male/${item}.svg?&skin=light&mouth=smile`} alt="" />
+                  <img style={{ width: '40px', borderRadius: '100%', marginLeft: '22px' }} src={`https://avatars.dicebear.com/api/gridy/${item}.svg`} alt="" />
                   <p style={{ color: 'white', fontSize: '14.5px', fontWeight: '600', marginLeft: '12px' }}>{item.split(' ')[0] + " " + item.split(' ')[1]}</p>
                 </div>)
             })
