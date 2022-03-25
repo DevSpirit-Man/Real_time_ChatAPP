@@ -128,11 +128,11 @@ function Chat(props) {
                     message.map((item, index) => {
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '46.5px',height:'50px', marginTop: '3px',marginRight:'0px' }} src={`https://avatars.dicebear.com/api/gridy/${item.name}.svg`} alt="" />
+                                <img style={{ width: '46.5px', marginTop: '3px',marginRight:'0px' }} src={`https://avatars.dicebear.com/api/gridy/${item.name}.svg`} alt="" />
                                 <div className="messagebox">
                                     <div style={{ display: 'flex', flexDirection: 'column' }}>
 
-                                        <h5 style={{ fontSize: '15.5px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
+                                        <h5 style={{ fontSize: '15.65px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
                                         <div className="timestamp" style={{ marginTop: '3.5px' }}>
                                             <p style={{ color: '#bebebe', fontSize: '10.85px' }}>{item.timestamp?.toDate().toString().slice(0, 25)}</p>
                                         </div>
