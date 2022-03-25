@@ -35,9 +35,9 @@ export const Leftbar = (props) => {
         }
 
       </div>
-      <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(27,27,27)', minWidth: '262px', borderRight: '1.93px solid #616161', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
+      <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(27,27,27)', minWidth: '262px', borderRight: '1.93px solid #414141', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
 
-        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '1.72px solid #616161', display: 'flex', alignItems: 'center', position: 'relative',}}>
+        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid #414141', display: 'flex', alignItems: 'center', position: 'relative',}}>
           <ChatIcon color="diabled" style={{ marginLeft: '30px', width: '22px' }}></ChatIcon>
           <h4 style={{ marginLeft: '5px', fontSize: '14.85px', marginTop: '-4px', color: 'white' }}>Chatzoid</h4>
         </div>
