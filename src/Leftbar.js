@@ -35,9 +35,9 @@ export const Leftbar = (props) => {
         }
 
       </div>
-      <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(18,15,19)', minWidth: '262px', borderRight: '1px solid #616161', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
+      <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(27,27,27)', minWidth: '262px', borderRight: '1.93px solid #616161', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
 
-        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '1px solid #616161', display: 'flex', alignItems: 'center', position: 'relative',}}>
+        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '1.72px solid #616161', display: 'flex', alignItems: 'center', position: 'relative',}}>
           <ChatIcon color="diabled" style={{ marginLeft: '30px', width: '22px' }}></ChatIcon>
           <h4 style={{ marginLeft: '5px', fontSize: '14.85px', marginTop: '-4px', color: 'white' }}>Chatzoid</h4>
         </div>
@@ -69,7 +69,7 @@ export const Leftbar = (props) => {
             switch room
           </Button>
         </div>
-        <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '52px', backgroundColor: 'rgb(60,57,63)', borderTop: '1px solid #616161', width: '100%' }}>
+        <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '52px', backgroundColor: 'rgb(60,57,63)', width: '100%' }}>
           <img src={props.photo} style={{ width: '35px', borderRadius: '100%', marginLeft: '24px' }} alt="" />
           <h5 style={{ marginLeft: '12px', color: 'white' }}>{props.name.split(' ')[0]}</h5>
           <button onClick={() => { props.logout(); }} style={{ cursor: 'pointer', width: '100%', marginLeft: '59px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px' }}><LogoutIcon style={{ width: '20px',color:'white' }}></LogoutIcon></button>
