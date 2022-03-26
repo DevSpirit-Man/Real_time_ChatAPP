@@ -25,12 +25,22 @@
         width:96vw;
     }
     .messageboxcont{
-        margin-left: 25px;
+        margin-left: 9px;
+    }
+}
+@media screen and (max-width:762px){
+    .fontemmm{
+        font-size: 0.85em;
+        width: 175px;
+    }
+    .tieemmm{
+        font-size: 12px;
+        width: 150px;
     }
 }
 .navbarmenu{
     height:49px;
-    border-bottom:1.98px solid #414141;
+    border-bottom:1.98px solid rgb(26,26,26);
     display:flex;
     align-items:center;
     padding-left: 35px;

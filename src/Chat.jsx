@@ -7,14 +7,16 @@ import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { LinearProgress } from '@mui/material';
+import { Button, LinearProgress } from '@mui/material';
 import Navbar from './Navbar'
 import ImageIcon from '@mui/icons-material/Image';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import VideocamIcon from '@mui/icons-material/Videocam';
-import { red } from '@mui/material/colors';
+import {red, teal } from '@mui/material/colors';
 import AttachmentIcon from '@mui/icons-material/Attachment';
+import SendIcon from '@mui/icons-material/Send';
+import './css/Responsive.css'
 function Chat(props) {
     const [input, setInput] = useState("")
     const [message, setMessage] = useState([])
@@ -128,13 +130,12 @@ function Chat(props) {
                     message.map((item, index) => {
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '46.5px', marginTop: '3px',marginRight:'0px' }} src={`https://avatars.dicebear.com/api/gridy/${item.name}.svg`} alt="" />
+                                <img style={{ width: '38px',height:'40px', borderRadius: '7px', marginTop: '-6px',marginRight:'9px',marginLeft:'1.25vw' }} src={`https://avatars.dicebear.com/api/adventurer-neutral/${item.name}.svg`} alt="" />
                                 <div className="messagebox">
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-
-                                        <h5 style={{ fontSize: '15.65px', fontWeight: '600' }}>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
-                                        <div className="timestamp" style={{ marginTop: '3.5px' }}>
-                                            <p style={{ color: '#bebebe', fontSize: '10.85px' }}>{item.timestamp?.toDate().toString().slice(0, 25)}</p>
+                                    <div style={{ display: 'flex', flexDirection: 'row',alignItems:'center' }}>
+                                        <h5  className='fontemmm'>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
+                                        <div className="timestamp" style={{marginLeft:'11.25px',marginBottom:'-2px' }}>
+                                            <p className='tieemmm' style={{fontSize: '1.15em',color:'#828282',lineHeight:'25px',letterSpacing:'-0.035em',fontFamily:'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
                                         </div>
                                     </div>
                                     {
@@ -150,13 +151,13 @@ function Chat(props) {
                                                     {
 
                                                         (item.filetype === "application/pdf") ? (
-                                                            <PictureAsPdfIcon sx={{ color: red[700] }} style={{ marginRight: '6px', fontSize: '24px' }}></PictureAsPdfIcon>
+                                                            <PictureAsPdfIcon sx={{ color: red[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></PictureAsPdfIcon>
                                                         ) : (<></>)
                                                     }
                                                     {
 
                                                         (item.filetype === "audio/mpeg") ? (
-                                                            <LibraryMusicIcon color="success" style={{ marginRight: '6px', fontSize: '24px' }}></LibraryMusicIcon>
+                                                            <LibraryMusicIcon sx={{ color: teal[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></LibraryMusicIcon>
                                                         ) : (<></>)
                                                     }
                                                     {
@@ -177,10 +178,6 @@ function Chat(props) {
                                             </p>
                                         )
                                     }
-                                    {/* <div className="timestamp" style={{marginTop:'3px',marginLeft:'-23px'}}>
-                                    {item.timestamp.toDate().toString().slice(0,25)}
-                                    </div> */}
-
                                 </div>
                             </div>
                         )
@@ -194,13 +191,13 @@ function Chat(props) {
                     <input type="file" name="" onChange={(e) => handlefiles(e)} id="filein" hidden />
                     <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><AttachmentIcon /></label>
 
-                    {/* {
-                        input ? (<Button onClick={() => { sendMessage() }} variant="outlined" style={{ height: '35px', marginRight: '9px' }} size="small">
-                            <p style={{ fontWeight: 'bold' }}>send</p>
-                        </Button>) : (<Button disabled variant="outlined" style={{ height: '35px', marginRight: '9px' }} size="small">
-                            <p style={{ fontWeight: 'bold' }}>send</p>
+                    {
+                        input ? (<Button onClick={() => { sendMessage() }} style={{ height: '35px', marginRight: '-19px' }} size="small">
+                            <SendIcon  sx={{fontSize:"21px"}}></SendIcon>
+                        </Button>) : (<Button disabled style={{ height: '35px', marginRight: '-19px' }} size="small">
+                            <SendIcon sx={{fontSize:"21px"}}></SendIcon>
                         </Button>)
-                    } */}
+                    }
 
                 </div>
             </div>
