@@ -3,7 +3,7 @@
     "background_color": "#090909",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/chatzoid",
     "name": "chatzoid",
     "short_name": "chatzoid",
     "description": "A real-time chat application",
