@@ -1,7 +1,6 @@
 ### A real-time chat application
 ##### Lets go chat!! https://chatzoid.vercel.app/
 features:
-- Login using Google
 - Realtime chat update
 - File upload and send
 - Create rooms and join with friends
