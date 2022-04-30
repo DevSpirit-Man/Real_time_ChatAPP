@@ -13,7 +13,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import VideocamIcon from '@mui/icons-material/Videocam';
-import {red, teal } from '@mui/material/colors';
+import { red, teal } from '@mui/material/colors';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 import SendIcon from '@mui/icons-material/Send';
 import './css/Responsive.css'
@@ -130,18 +130,18 @@ function Chat(props) {
                     message.map((item, index) => {
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '38px',height:'40px', borderRadius: '7px', marginTop: '-6px',marginRight:'9px',marginLeft:'1.25vw' }} src={`https://avatars.dicebear.com/api/adventurer-neutral/${item.name}.svg`} alt="" />
+                                <img style={{ width: '55px', height: '55px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.25vw' }} src={item.userimg} alt="" />
                                 <div className="messagebox">
-                                    <div style={{ display: 'flex', flexDirection: 'row',alignItems:'center' }}>
-                                        <h5  className='fontemmm'>{item.name.split(' ')[0] + " " + item.name.split(' ')[1]}</h5>
-                                        <div className="timestamp" style={{marginLeft:'11.25px',marginBottom:'-2px' }}>
-                                            <p className='tieemmm' style={{fontSize: '1.15em',color:'#828282',lineHeight:'25px',letterSpacing:'-0.035em',fontFamily:'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
+                                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                        <h5 className='fontemmm'>{item.name}</h5>
+                                        <div className="timestamp" style={{ marginLeft: '11.25px', marginBottom: '-2px' }}>
+                                            <p className='tieemmm' style={{ fontSize: '1.15em', color: '#828282', lineHeight: '25px', letterSpacing: '-0.035em', fontFamily: 'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
                                         </div>
                                     </div>
                                     {
                                         item.text.includes('http') ? (
                                             <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '10px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
-                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px',marginBottom:'-3px' }}>
+                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px' }}>
                                                     {
 
                                                         (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
@@ -193,9 +193,9 @@ function Chat(props) {
 
                     {
                         input ? (<Button onClick={() => { sendMessage() }} style={{ height: '35px', marginRight: '-19px' }} size="small">
-                            <SendIcon  sx={{fontSize:"21px"}}></SendIcon>
+                            <SendIcon sx={{ fontSize: "21px" }}></SendIcon>
                         </Button>) : (<Button disabled style={{ height: '35px', marginRight: '-19px' }} size="small">
-                            <SendIcon sx={{fontSize:"21px"}}></SendIcon>
+                            <SendIcon sx={{ fontSize: "21px" }}></SendIcon>
                         </Button>)
                     }
 

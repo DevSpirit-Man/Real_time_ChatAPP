@@ -3,10 +3,13 @@ import ChatIcon from '@mui/icons-material/Chat';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import { db } from './firebase';
-import { Button } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import './css/Responsive.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+// import { where, getDocs, limit } from "firebase/firestore";
+
+
 export const Leftbar = (props) => {
   const [show, setShow] = useState(false)
   const [user, setUser] = useState([])
@@ -16,6 +19,24 @@ export const Leftbar = (props) => {
       onSnapshot(qr, (snapshot) => setUser(snapshot.docs.map((doc) => doc.data().name)))
     }
     , []);
+  //  function getPhoto(name) {
+  //   const q = query(collection(db, props.roomid), where("name", "==", name), limit(1));
+  //   let querySnapshot;
+  //   getDocs(q).then((sm)=>{
+  //     querySnapshot=sm
+  //     const iarr = []
+  //     querySnapshot?.forEach((doc) => {
+  //       iarr.push(doc.data().userimg)
+  //       // console.log(doc.data().userimg,Math.random());
+  //     });
+  //     console.log(iarr[0]);
+  //     return iarr[0]
+  //   }).catch((err)=>{
+
+  //   })
+
+
+  // }
   function menu() {
     if (show === false) {
       document.getElementById('showleft').style.display = "block"
@@ -36,7 +57,7 @@ export const Leftbar = (props) => {
       </div>
       <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(18,15,19)', minWidth: '284px', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
 
-        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid rgb(26,26,26)', display: 'flex', alignItems: 'center', position: 'relative',backgroundColor:'#120F13' }}>
+        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid rgb(26,26,26)', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: '#120F13' }}>
           <ChatIcon color="diabled" style={{ marginLeft: '30px', width: '25px', marginBottom: '-4px' }}></ChatIcon>
           <h4 style={{ marginLeft: '9px', marginTop: '0px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '18px', letterSpacing: '-0.035em' }}>Chatzoid</h4>
         </div>
@@ -47,7 +68,7 @@ export const Leftbar = (props) => {
         </div>
 
         <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 29px', marginTop: '29px' }}>
-          <hp style={{ color: 'white', font: 'Noto Sans', fontWeight: '400', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em'}}>Share this room id to your friends</hp>
+          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '400', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em' }}>Share this room id to your friends</p>
         </div>
 
 
@@ -59,8 +80,8 @@ export const Leftbar = (props) => {
             Array.from(new Set(user)).map((item) => {
               return (
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '9px', marginBottom: '18px' }}>
-                  <img style={{ width: '38px', height: '40px', borderRadius: '7px', marginLeft: '29.99px' }} src={`https://avatars.dicebear.com/api/adventurer-neutral/${item}.svg`} alt="" />
-                  <p style={{ color: '#828282', marginLeft: '19.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item.split(' ')[0] + " " + item.split(' ')[1]}</p>
+                  <Avatar style={{ width: '38px', height: '40px', borderRadius: '7px', marginLeft: '29.99px' }} alt="" />
+                  <p style={{ color: '#828282', marginLeft: '19.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
             })
           }
@@ -70,9 +91,9 @@ export const Leftbar = (props) => {
             switch room
           </Button>
         </div>
-        <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '55px', backgroundColor: '#0B090C', width: '100%',borderTop:'2px solid rgb(26,26,26)' }}>
+        <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '55px', backgroundColor: '#0B090C', width: '100%', borderTop: '2px solid rgb(26,26,26)' }}>
           <img src={props.photo} style={{ width: '38px', height: '40px', borderRadius: '7px', marginLeft: '24px' }} alt="" />
-          <h5 style={{ marginLeft: '12px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '18px', letterSpacing: '-0.035em', zIndex: '99' }}>{props.name.split(' ')[0]}</h5>
+          <h5 style={{ marginLeft: '12px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em', zIndex: '99' }}>{props.name}</h5>
           <button onClick={() => { props.logout(); }} style={{ cursor: 'pointer', width: '100%', marginLeft: '79px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px' }}><LogoutIcon style={{ width: '20px', color: 'white' }}></LogoutIcon></button>
         </div>
       </div>
