@@ -9,18 +9,29 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+// import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+// import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import EditIcon from '@mui/icons-material/Edit';
+import Fab from '@mui/material/Fab';
 
 export const Login = (props) => {
     const auth = getAuth();
-    const arr = ['https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229']
+    // const arr = ['https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4', 'https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229']
     const [email, setEmail] = useState('')
     const [password, setpassword] = useState('')
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const [name, setName] = useState('')
-    const [i, setI] = useState(0)
-    const [photo, setPhoto] = useState(arr[i])
+    const [open1, setOpen1] = useState(false);
+
+    const handleClickOpen1 = () => {
+        setOpen1(true);
+    };
+
+    const handleClose1 = () => {
+        setOpen1(false);
+    };
+    // const [i, setI] = useState(0)
+    const [photo, setPhoto] = useState('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6')
     const loginstyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -89,19 +100,25 @@ export const Login = (props) => {
     const handleClickOpen = () => {
         setOpen(true);
     };
-    const goLeft = () => {
-        if(i>=0){
-            setI(i-1);
-            setPhoto(arr[i])
-        }
-        else{
-            setI(arr.length-1)
-        }
-    }
-    const goRight = () => {
-            setI((i+1)%arr.length);
-            setPhoto(arr[i])
-    }
+    // const goLeft = () => {
+    //     if (i > 0) {
+    //         setI(i - 1);
+    //         setPhoto(arr[i])
+    //     }
+    //     else if (i === 0) {
+    //         setI(arr.length - 1)
+    //         setPhoto(arr[i])
+    //     }
+    // }
+    // const goRight = () => {
+    //     if (i <= arr.length - 1) {
+    //         setI(i + 1);
+    //         setPhoto(arr[i])
+    //     } else if (i === arr.length) {
+    //         setI(0);
+    //         setPhoto(arr[i])
+    //     }
+    // }
     return (
 
         <div className='login' style={loginstyle}>
@@ -131,7 +148,7 @@ export const Login = (props) => {
                 style={{ width: '75%', marginTop: '19px' }}
             />
 
-            <Button variant="contained" sx={{ marginTop: '21px', width: '125px',backgroundColor:'#5090D3' }} onClick={senduserdetails} size="large">
+            <Button variant="contained" sx={{ marginTop: '21px', width: '125px', backgroundColor: '#5090D3' }} onClick={senduserdetails} size="large">
                 <p style={{ width: '190px', color: 'white', fontWeight: '500', marginLeft: '3px', marginBottom: '-3px' }}>Sign In</p>
             </Button>
             <Button variant="text" sx={{ marginTop: '16px', width: '155px', position: 'absolute', top: '0', right: '0' }} onClick={handleClickOpen} size="large">
@@ -141,9 +158,56 @@ export const Login = (props) => {
                 <DialogTitle style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}> Signup</DialogTitle>
                 <DialogContent>
                     <div className="avatar" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                        <ArrowLeftIcon onClick={goLeft} style={{ cursor: 'pointer', width: '40px', height: '40px' }} />
-                        <Avatar src={photo} style={{ margin: 'auto', width: '125px', height: '125px', marginBottom: '19px' }}></Avatar>
-                        <ArrowRightIcon onClick={goRight} style={{ cursor: 'pointer', width: '40px', height: '40px' }} />
+                        {/* <Button onClick={goLeft} type="text" ><ArrowLeftIcon  style={{width: '50px', height: '55px' }} /></Button> */}
+                        <Avatar src={photo} style={{ margin: 'auto', width: '125px', height: '125px', marginBottom: '19px', position: 'relative' }}></Avatar>
+                        <Fab onClick={handleClickOpen1} style={{ position: 'absolute', left: '56%', width: '45px', height: '45px', bottom: '65%' }} color="primary" aria-label="edit">
+                            <EditIcon />
+                        </Fab>
+                        <Dialog maxWidth="md" open={open1} onClose={handleClose1}>
+                            <DialogTitle style={{ margin: 'auto' }}>Select Avatar</DialogTitle>
+                            <DialogContent style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6'); }}
+                                />
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627'); }}
+                                />
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2'); }}
+                                />
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58'); }}
+                                />
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb'); }}
+                                />
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4'); }}
+                                />
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229"
+                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229'); }}
+                                />
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose1}>Done</Button>
+                            </DialogActions>
+                        </Dialog>
+
+                        {/* <Button onClick={goRight} type="text"><ArrowRightIcon  style={{width: '50px', height: '55px' }} /></Button> */}
                     </div>
                     <TextField
                         autoFocus
