@@ -61,7 +61,7 @@ export const Login = (props) => {
                 props.getuser(user)
             })
             .catch((error) => {
-                toast.error(error.message)
+                toast.error(error.message.slice(16))
             });
     }
     async function signup() {
@@ -91,7 +91,7 @@ export const Login = (props) => {
 
             })
             .catch((error) => {
-                toast.error(error.message)
+                toast.error(error.message.slice(16))
             });
     }
     const handleClose = () => {
