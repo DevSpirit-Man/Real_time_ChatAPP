@@ -130,7 +130,9 @@ function Chat(props) {
                     message.map((item, index) => {
                         return (
                             <div className="messageboxcont">
-                                <img style={{ width: '55px', height: '55px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.25vw' }} src={item.userimg} alt="" />
+                            <div className="imgbox"  style={{ width: '55px', height: '55px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.25vw' }}>
+                                <img style={{ width: '55px', height: '55px'}} src={item.userimg} alt="" />
+                            </div>
                                 <div className="messagebox">
                                     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                         <h5 className='fontemmm'>{item.name}</h5>
