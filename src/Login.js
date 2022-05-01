@@ -123,10 +123,11 @@ export const Login = (props) => {
 
         <div className='login' style={loginstyle}>
             <Toaster />
-            <ChatIcon color="primary" sx={{ fontSize: 120 }} ></ChatIcon>
+            <ChatIcon color="disabled" sx={{ fontSize: 140 }} ></ChatIcon>
             <h2 style={{ color: 'white', fontWeight: '400' }}>Chatzoid - Sign In</h2>
             {/* <p style={{ fontSize: '16px', width: '295px', marginTop: '9px', color: 'white' }}>we are so exicted to see you again</p> */}
             <TextField
+                autoFocus
                 id="standard-password-input"
                 label="Email"
                 type="email"
@@ -148,11 +149,11 @@ export const Login = (props) => {
                 style={{ width: '92%', marginTop: '19px' }}
             />
 
-            <Button variant="contained" sx={{ marginTop: '21px', width: '125px', backgroundColor: '#5090D3' }} onClick={senduserdetails} size="large">
+            <Button variant="contained" sx={{ marginTop: '21px', width: '115px', backgroundColor: '#5090D3' }} onClick={senduserdetails} size="large">
                 <p style={{ width: '190px', color: 'white', fontWeight: '500', marginLeft: '3px', marginBottom: '-3px' }}>Sign In</p>
             </Button>
-            <Button variant="text" sx={{ marginTop: '16px', width: '155px', position: 'absolute', top: '0', right: '0' }} onClick={handleClickOpen} size="large">
-                <p style={{ width: '190px', color: 'white', fontWeight: '500', marginLeft: '3px', marginBottom: '-3px' }}>Sign Up</p>
+            <Button variant="text" sx={{ marginTop: '16px', width: '105px', position: 'absolute', top: '0', right: '9px' }} onClick={handleClickOpen} size="large">
+                <p style={{ width: '190px', color: '#5090D3', fontWeight: '600', marginLeft: '3px', marginBottom: '-3px' }}>Sign Up</p>
             </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}> Signup</DialogTitle>
@@ -165,41 +166,41 @@ export const Login = (props) => {
                         </Fab>
                         <Dialog maxWidth="md" open={open1} onClose={handleClose1}>
                             <DialogTitle style={{ margin: 'auto' }}>Select Avatar</DialogTitle>
-                            <DialogContent style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',flexWrap:'wrap' }}>
+                            <DialogContent style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6');handleClose1(); }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627');handleClose1();  }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2');handleClose1();  }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58');handleClose1();  }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb');handleClose1();  }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4');handleClose1();  }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229"
                                     style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229');handleClose1(); }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229'); handleClose1(); }}
                                 />
                             </DialogContent>
                             <DialogActions>

@@ -17,7 +17,7 @@ export const Room = (props) => {
         <Avatar sx={{width:'115px',height:'115px'}} alt={props.name} src={props.photo} />
         <h2 style={{margin:'auto',marginTop:'20px',color:'white',fontFamily:'sans-serif',marginBottom:'10px',fontWeight:'400'}}>{props.name}</h2>
         </div>
-        <Input  placeholder="Enter a room Id" sx={{width:'280px',color:'white'}} value={roomid}
+        <Input autoFocus  placeholder="Enter a room Id" sx={{width:'280px',color:'white'}} value={roomid}
           onChange={(e)=>{setRoomid(e.target.value)}} />
           <div className="btns">
             

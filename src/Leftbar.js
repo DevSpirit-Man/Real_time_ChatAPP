@@ -72,15 +72,15 @@ export const Leftbar = (props) => {
         </div>
 
 
-        <div className="sepater" style={{ marginTop: '29px', overflowY: 'scroll', height: '50vh' }}>
-          <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 29px', marginTop: '9px', marginBottom: '23.5px' }}>
-            <h5 style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.5px', letterSpacing: '-0.035em' }}>Members</h5>
+        <h5 style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.5px', letterSpacing: '-0.035em', marginTop: '29px', marginLeft: '29px' }}>Members</h5>
+        <div className="sepater" style={{ overflowY: 'scroll', height: '58vh' }}>
+          <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', padding: '0 29px', marginTop: '-6.5px', marginBottom: '23.5px' }}>
           </div>
           {
             Array.from(new Set(user)).map((item) => {
               return (
-                <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '9px', marginBottom: '18px' }}>
-                  <Avatar style={{ width: '38px', height: '40px', borderRadius: '7px', marginLeft: '29.99px' }} alt="" />
+                <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px', marginBottom: '12px' }}>
+                  <Avatar style={{ width: '40px', height: '40px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" />
                   <p style={{ color: '#828282', marginLeft: '19.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
             })
