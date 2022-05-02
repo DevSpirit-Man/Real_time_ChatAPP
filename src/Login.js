@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import Button from '@mui/material/Button';
 // import GoogleIcon from '@mui/icons-material/Google';
 import toast, { Toaster } from 'react-hot-toast';
 import ChatIcon from '@mui/icons-material/Chat';
-import { Avatar, TextField } from '@mui/material';
+import { Avatar, DialogContentText, TextField } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -22,6 +22,16 @@ export const Login = (props) => {
     const [open, setOpen] = useState(false);
     const [name, setName] = useState('')
     const [open1, setOpen1] = useState(false);
+    const [open3, setOpen3] = React.useState(false);
+    const [resetemail, setresetemail] = useState("")
+
+    const handleClickOpen3 = () => {
+        setOpen3(true);
+    };
+
+    const handleClose3 = () => {
+        setOpen3(false);
+    };
 
     const handleClickOpen1 = () => {
         setOpen1(true);
@@ -100,6 +110,16 @@ export const Login = (props) => {
     const handleClickOpen = () => {
         setOpen(true);
     };
+    const resetPassword = () => {
+        sendPasswordResetEmail(auth, resetemail)
+            .then(() => {
+                toast.success("Check your mail for password reset link ")
+            })
+            .catch((error) => {
+                toast.error(error.message.slice(16))
+            });
+
+    }
     // const goLeft = () => {
     //     if (i > 0) {
     //         setI(i - 1);
@@ -148,8 +168,32 @@ export const Login = (props) => {
                 onChange={e => setpassword(e.target.value)}
                 style={{ width: '92%', marginTop: '19px' }}
             />
-
-            <Button variant="contained" sx={{ marginTop: '21px', width: '115px', backgroundColor: '#5090D3' }} onClick={senduserdetails} size="large">
+            <Button sx={{ marginTop: '21px' }} onClick={handleClickOpen3} variant="text">Forgot Password ?</Button>
+            <Dialog open={open3} onClose={handleClose3}>
+                <DialogTitle>Forgot Password ? </DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Enter your email to get password reset link
+                    </DialogContentText>
+                    <TextField
+                        style={{ marginTop: '18px' }}
+                        value={resetemail}
+                        onChange={e => setresetemail(e.target.value)}
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Email"
+                        type="email"
+                        fullWidth
+                        variant="outlined"
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose3}>Cancel</Button>
+                    <Button onClick={resetPassword}>Reset</Button>
+                </DialogActions>
+            </Dialog>
+            <Button variant="contained" sx={{ marginTop: '19px', width: '115px', backgroundColor: '#5090D3' }} onClick={senduserdetails} size="large">
                 <p style={{ width: '190px', color: 'white', fontWeight: '500', marginLeft: '3px', marginBottom: '-3px' }}>Sign In</p>
             </Button>
             <Button variant="text" sx={{ marginTop: '16px', width: '105px', position: 'absolute', top: '0', right: '9px' }} onClick={handleClickOpen} size="large">
