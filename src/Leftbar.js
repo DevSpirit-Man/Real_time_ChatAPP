@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import './css/Responsive.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 // import { where, getDocs, limit } from "firebase/firestore";
-
+import ShareIcon from '@mui/icons-material/Share';
 
 export const Leftbar = (props) => {
   const [show, setShow] = useState(false)
@@ -63,7 +63,7 @@ export const Leftbar = (props) => {
         </div>
 
         <div className="rommspecificidandp" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '34px' }}>
-          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '17px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px' }}>{props.roomid}</p>
+          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '17px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px' ,display:'flex',flexDirection:'row',alignItems:'center'}}>{props.roomid}<ShareIcon color="diabled" style={{marginLeft:'12px', width: '21.25px',marginBottom:'-6px'}}/></p>
 
         </div>
 
@@ -92,7 +92,7 @@ export const Leftbar = (props) => {
           </Button>
         </div>
         <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '55px', backgroundColor: '#0B090C', width: '100%', borderTop: '2px solid rgb(26,26,26)' }}>
-          <img src={props.photo} style={{ width: '40px', height: '42px', borderRadius: '7px', marginLeft: '24px' }} alt="" />
+          <img src={props.photo} style={{ width: '40px', height: '42px', borderRadius: '7px', marginLeft: '24px',marginTop:'-4.5px' }} alt="" />
           <h5 style={{ marginLeft: '12px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em', zIndex: '99' }}>{props.name}</h5>
           <button onClick={() => { props.logout(); }} style={{ cursor: 'pointer', width: 'fit-content%', marginLeft: '221px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px',marginTop:'4px' }}><LogoutIcon style={{ width: '20px', color: 'white' }}></LogoutIcon></button>
         </div>

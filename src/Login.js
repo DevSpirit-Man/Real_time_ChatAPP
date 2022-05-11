@@ -41,7 +41,7 @@ export const Login = (props) => {
         setOpen1(false);
     };
     // const [i, setI] = useState(0)
-    const [photo, setPhoto] = useState('https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerSweater&clotheColor=Pink&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light')
+    const [photo, setPhoto] = useState('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6')
     const loginstyle = {
         display: 'flex',
         flexDirection: 'column',
