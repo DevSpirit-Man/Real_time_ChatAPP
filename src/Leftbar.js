@@ -79,8 +79,8 @@ export const Leftbar = (props) => {
           {
             Array.from(new Set(user)).map((item) => {
               return (
-                <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px', marginBottom: '12px' }}>
-                  <Avatar style={{ width: '38px', height: '40px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" />
+                <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '18px', marginBottom: '12px' }}>
+                  <Avatar style={{ width: '41.12px', height: '42px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" />
                   <p style={{ color: '#828282', marginLeft: '17.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
             })
