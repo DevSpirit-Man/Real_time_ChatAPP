@@ -80,7 +80,7 @@ export const Leftbar = (props) => {
             Array.from(new Set(user)).map((item) => {
               return (
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px', marginBottom: '12px' }}>
-                  <Avatar src={`https://avatars.dicebear.com/api/identicon/${item}.svg`} style={{ width: '34px', height: '34px', borderRadius: '8%', marginLeft: '29.99px' }} alt="" />
+                  <Avatar style={{ width: '30px', height: '30px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" />
                   <p style={{ color: '#828282', marginLeft: '17.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
             })
