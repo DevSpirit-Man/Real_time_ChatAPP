@@ -41,7 +41,7 @@ export const Login = (props) => {
         setOpen1(false);
     };
     // const [i, setI] = useState(0)
-    const [photo, setPhoto] = useState('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6')
+    const [photo, setPhoto] = useState('https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortWaved&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerSweater&clotheColor=Pink&eyeType=Default&eyebrowType=Default&mouthType=Smile&skinColor=Light')
     const loginstyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -208,44 +208,61 @@ export const Login = (props) => {
                         <Fab onClick={handleClickOpen1} style={{ position: 'absolute', left: '56%', width: '45px', height: '45px', bottom: '65%' }} color="primary" aria-label="edit">
                             <EditIcon />
                         </Fab>
-                        <Dialog maxWidth="md" open={open1} onClose={handleClose1}>
+                        <Dialog maxWidth="xl" open={open1} onClose={handleClose1}>
                             <DialogTitle style={{ margin: 'auto' }}>Select Avatar</DialogTitle>
                             <DialogContent style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer",borderRadius:'100%' }}
                                     onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6'); handleClose1(); }}
                                 />
                                 <Avatar
-                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=9cafcace-1e62-4961-992b-a5d22e85a627'); handleClose1(); }}
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=0d4dd492-d111-4dab-be81-59ca6d47c44a"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=0d4dd492-d111-4dab-be81-59ca6d47c44a'); handleClose1(); }}
                                 />
                                 <Avatar
-                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=ee647bd7-b54e-4365-ad93-ffbc1d4b4fe2'); handleClose1(); }}
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=b8d83d6e-9226-41f6-afcd-4545ef4823f7"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(6).png?alt=media&token=b8d83d6e-9226-41f6-afcd-4545ef4823f7'); handleClose1(); }}
                                 />
                                 <Avatar
-                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(7).png?alt=media&token=789bdada-11bf-4fac-9eb4-c8a41971ac58'); handleClose1(); }}
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=7de167ad-ba3e-49c2-ae99-2066c0193b7c"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(4).png?alt=media&token=7de167ad-ba3e-49c2-ae99-2066c0193b7c'); handleClose1(); }}
                                 />
+
                                 <Avatar
-                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(8).png?alt=media&token=7fa37bcb-ec1a-4891-8815-6a656605cbfb'); handleClose1(); }}
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(3).png?alt=media&token=414181bb-f0c5-4b7d-817c-8a32dc6566a1"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(3).png?alt=media&token=414181bb-f0c5-4b7d-817c-8a32dc6566a1'); handleClose1(); }}
                                 />
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
                                     onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars.png?alt=media&token=bd6ddf4b-4d07-4646-a582-d774a62723e4'); handleClose1(); }}
                                 />
                                 <Avatar
-                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229"
-                                    style={{ width: "105px", height: "105px", marginTop: "2px", marginRight: '9px', cursor: "pointer" }}
-                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(9).png?alt=media&token=f52a07a5-39a7-4ce6-8259-3a4159bc5229'); handleClose1(); }}
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(2).png?alt=media&token=1b6e0c46-2886-4c1d-9cdf-f8d6eca1b566"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(2).png?alt=media&token=1b6e0c46-2886-4c1d-9cdf-f8d6eca1b566'); handleClose1(); }}
                                 />
+                                {/* <Avatar
+                                    src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=Blue03&eyeType=Default&eyebrowType=Default&mouthType=Twinkle&skinColor=Light"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://avataaars.io/?avatarStyle=Circle&topType=LongHairBob&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=Blue03&eyeType=Default&eyebrowType=Default&mouthType=Twinkle&skinColor=Light'); handleClose1(); }}
+                                /> */}
+                                <Avatar
+                                    src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(1).png?alt=media&token=0f14db78-3efc-4340-95f4-a213c99dbfcb"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer",borderRadius:'100%' }}
+                                    onClick={() => { setPhoto('https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(1).png?alt=media&token=0f14db78-3efc-4340-95f4-a213c99dbfcb'); handleClose1(); }}
+                                />
+                                {/* <Avatar
+                                    src="https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Blank&hatColor=Black&facialHairType=BeardMajestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=Heather&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Light"
+                                    style={{ width: "105px", height: "105px", marginTop: "6px", marginRight: '15px', cursor: "pointer" }}
+                                    onClick={() => { setPhoto('https://avataaars.io/?avatarStyle=Circle&topType=Turban&accessoriesType=Blank&hatColor=Black&facialHairType=BeardMajestic&facialHairColor=BrownDark&clotheType=ShirtCrewNeck&clotheColor=Heather&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Light'); handleClose1(); }}
+                                /> */}
+                               
                             </DialogContent>
                             <DialogActions>
                                 {/* <Button onClick={handleClose1}>Done</Button> */}

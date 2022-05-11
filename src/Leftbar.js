@@ -74,14 +74,14 @@ export const Leftbar = (props) => {
 
         <h5 style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.5px', letterSpacing: '-0.035em', marginTop: '29px', marginLeft: '29px' }}>Members</h5>
         <div className="sepater" style={{ overflowY: 'scroll', height: '58vh' }}>
-          <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', padding: '0 29px', marginTop: '-6.5px', marginBottom: '23.5px' }}>
+          <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', padding: '0 29px', marginTop: '-2.5px', marginBottom: '23.5px' }}>
           </div>
           {
             Array.from(new Set(user)).map((item) => {
               return (
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px', marginBottom: '12px' }}>
-                  <Avatar style={{ width: '40px', height: '40px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" />
-                  <p style={{ color: '#828282', marginLeft: '19.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
+                  <Avatar src={`https://avatars.dicebear.com/api/identicon/${item}.svg`} style={{ width: '34px', height: '34px', borderRadius: '8%', marginLeft: '29.99px' }} alt="" />
+                  <p style={{ color: '#828282', marginLeft: '17.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
             })
           }
@@ -92,7 +92,7 @@ export const Leftbar = (props) => {
           </Button>
         </div>
         <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '55px', backgroundColor: '#0B090C', width: '100%', borderTop: '2px solid rgb(26,26,26)' }}>
-          <img src={props.photo} style={{ width: '38px', height: '40px', borderRadius: '7px', marginLeft: '24px' }} alt="" />
+          <img src={props.photo} style={{ width: '40px', height: '42px', borderRadius: '7px', marginLeft: '24px' }} alt="" />
           <h5 style={{ marginLeft: '12px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em', zIndex: '99' }}>{props.name}</h5>
           <button onClick={() => { props.logout(); }} style={{ cursor: 'pointer', width: 'fit-content%', marginLeft: '221px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px',marginTop:'4px' }}><LogoutIcon style={{ width: '20px', color: 'white' }}></LogoutIcon></button>
         </div>
