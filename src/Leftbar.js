@@ -3,12 +3,16 @@ import ChatIcon from '@mui/icons-material/Chat';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import { db } from './firebase';
-import { Avatar, Button } from '@mui/material';
+import { Button } from '@mui/material';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import MenuIcon from '@mui/icons-material/Menu';
 import './css/Responsive.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 // import { where, getDocs, limit } from "firebase/firestore";
-import ShareIcon from '@mui/icons-material/Share';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 export const Leftbar = (props) => {
   const [show, setShow] = useState(false)
@@ -49,6 +53,7 @@ export const Leftbar = (props) => {
   }
   return (
     <>
+      <Toaster />
       <div className="hamburger">
         {
           (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '19px', marginBottom: '-7.15px', color: 'white' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '17px', marginBottom: '-6.65px' }}></ArrowBackIosNewIcon></button>)
@@ -63,7 +68,7 @@ export const Leftbar = (props) => {
         </div>
 
         <div className="rommspecificidandp" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '34px' }}>
-          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '17px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px' ,display:'flex',flexDirection:'row',alignItems:'center'}}>{props.roomid}<ShareIcon color="diabled" style={{marginLeft:'12px', width: '21.25px',marginBottom:'-6px'}}/></p>
+          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '17px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>{props.roomid}<ContentCopyIcon color="primary" style={{ marginLeft: '12px', width: '20.25px', marginBottom: '-6px', cursor: 'pointer' }} onClick={() => { navigator.clipboard.writeText(props.roomid);toast.success('Room id copied to clipboard'); }} /></p>
 
         </div>
 
@@ -79,8 +84,9 @@ export const Leftbar = (props) => {
           {
             Array.from(new Set(user)).map((item) => {
               return (
-                <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '18px', marginBottom: '12px' }}>
-                  <Avatar style={{ width: '41.12px', height: '42px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" />
+                <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '22px', marginBottom: '12px' }}>
+                  <FiberManualRecordIcon color="disabled" style={{ width: '10px', marginLeft: '29.99px' }} />
+                  {/* <Avatar style={{ width: '41.12px', height: '42px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" /> */}
                   <p style={{ color: '#828282', marginLeft: '17.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
             })
@@ -92,9 +98,9 @@ export const Leftbar = (props) => {
           </Button>
         </div>
         <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '55px', backgroundColor: '#0B090C', width: '100%', borderTop: '2px solid rgb(26,26,26)' }}>
-          <img src={props.photo} style={{ width: '40px', height: '42px', borderRadius: '7px', marginLeft: '24px',marginTop:'-4.5px' }} alt="" />
+          <img src={props.photo} style={{ width: '40px', height: '42px', borderRadius: '7px', marginLeft: '24px', marginTop: '-4.5px' }} alt="" />
           <h5 style={{ marginLeft: '12px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em', zIndex: '99' }}>{props.name}</h5>
-          <button onClick={() => { props.logout(); }} style={{ cursor: 'pointer', width: 'fit-content%', marginLeft: '221px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px',marginTop:'4px' }}><LogoutIcon style={{ width: '20px', color: 'white' }}></LogoutIcon></button>
+          <button onClick={() => { props.logout(); }} style={{ cursor: 'pointer', width: 'fit-content%', marginLeft: '221px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px', marginTop: '4px' }}><LogoutIcon color="primary" style={{ width: '20px'}}></LogoutIcon></button>
         </div>
       </div>
     </>
