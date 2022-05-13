@@ -85,7 +85,7 @@ export const Leftbar = (props) => {
             Array.from(new Set(user)).map((item) => {
               return (
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '22px', marginBottom: '12px' }}>
-                  <FiberManualRecordIcon color="disabled" style={{ width: '10px', marginLeft: '29.99px' }} />
+                  <FiberManualRecordIcon color="disabled" style={{ width: '10px', marginLeft: '29.99px',marginTop:'1px' }} />
                   {/* <Avatar style={{ width: '41.12px', height: '42px', borderRadius: '100%', marginLeft: '29.99px' }} alt="" /> */}
                   <p style={{ color: '#828282', marginLeft: '17.9px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16px', letterSpacing: '-0.035em' }}>{item}</p>
                 </div>)
