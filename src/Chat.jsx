@@ -172,7 +172,7 @@ function Chat(props) {
                                             </div>
                                             {
                                                 item.text.includes('http') ? (
-                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '10px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
+                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '3px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
                                                         <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px' }}>
                                                             {
 
