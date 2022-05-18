@@ -159,7 +159,7 @@ function Chat(props) {
 
                                 ) :
                                     <div className="messageboxcont">
-                                        <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.25vw' }}>
+                                        <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.15vw' }}>
                                             <img style={{ width: '55px', height: '57px' }} src={item.userimg} alt="" />
                                         </div>
                                         <div className="messagebox">
