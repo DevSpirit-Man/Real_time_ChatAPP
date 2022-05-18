@@ -96,7 +96,7 @@ export const Leftbar = (props) => {
 
 
         <h5 style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.85px', letterSpacing: '-0.035em', marginTop: '29px', marginLeft: '29px', marginBottom: '12px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>Members &nbsp; :</h5>
-        <div className="sepater" style={{ overflowY: 'scroll', height: '58vh' }}>
+        <div className="sepater" style={{ overflowY: 'scroll', height: '52vh' }}>
           <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', padding: '0 29px', marginTop: '-2.5px', marginBottom: '20.5px' }}>
           </div>
           {
