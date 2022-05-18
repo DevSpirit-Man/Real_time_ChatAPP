@@ -7,7 +7,7 @@ import { db, storage } from './firebase';
 import { addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { Button, LinearProgress } from '@mui/material';
+import { Button, LinearProgress, Snackbar } from '@mui/material';
 import Navbar from './Navbar'
 import ImageIcon from '@mui/icons-material/Image';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
@@ -15,8 +15,11 @@ import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import { red, teal } from '@mui/material/colors';
 import AttachmentIcon from '@mui/icons-material/Attachment';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import SendIcon from '@mui/icons-material/Send';
 import './css/Responsive.css'
+
+
 function Chat(props) {
     const [input, setInput] = useState("")
     const [message, setMessage] = useState([])
@@ -28,6 +31,20 @@ function Chat(props) {
     // getDoc(document).then((e)=>{
     //     console.log(e.data());
     // })
+    const [open, setOpen] = React.useState(true);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+            return;
+        }
+
+        setOpen(false);
+        handleClick()
+    };
     function inputhandler(e) {
         setInput(e.target.value)
     }
@@ -128,60 +145,76 @@ function Chat(props) {
             <div className="chat__body" id="custom">
                 {
                     message.map((item, index) => {
-                        return (
-                            <div className="messageboxcont">
-                            <div className="imgbox"  style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.25vw' }}>
-                                <img style={{ width: '55px', height: '57px'}} src={item.userimg} alt="" />
-                            </div>
-                                <div className="messagebox">
-                                    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                        <h5 className='fontemmm'>{item.name}</h5>
-                                        <div className="timestamp" style={{ marginLeft: '11.25px', marginBottom: '-2px' }}>
-                                            <p className='tieemmm' style={{ fontSize: '1.15em', color: '#828282', lineHeight: '25px', letterSpacing: '-0.035em', fontFamily: 'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
+                        return (<>
+                            {
+                                (item.alert === true) ? (
+                                    (Math.abs(Date.parse(item.date) - Date.parse(new Date().toString())) < 3000) ?
+                                        (item.name !== props.name) ?
+                                            <Snackbar
+                                                open={open}
+                                                autoHideDuration={2500}
+                                                onClose={handleClose}
+                                                message={item.text}
+                                            /> : <></> : <></>
+
+                                ) :
+                                    <div className="messageboxcont">
+                                        <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.25vw' }}>
+                                            <img style={{ width: '55px', height: '57px' }} src={item.userimg} alt="" />
                                         </div>
-                                    </div>
-                                    {
-                                        item.text.includes('http') ? (
-                                            <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '10px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
-                                                <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px' }}>
-                                                    {
-
-                                                        (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
-                                                            <ImageIcon color="primary" style={{ marginRight: '6px', fontSize: '24px' }}></ImageIcon>
-                                                        ) : (<></>)
-                                                    }
-                                                    {
-
-                                                        (item.filetype === "application/pdf") ? (
-                                                            <PictureAsPdfIcon sx={{ color: red[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></PictureAsPdfIcon>
-                                                        ) : (<></>)
-                                                    }
-                                                    {
-
-                                                        (item.filetype === "audio/mpeg") ? (
-                                                            <LibraryMusicIcon sx={{ color: teal[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></LibraryMusicIcon>
-                                                        ) : (<></>)
-                                                    }
-                                                    {
-
-                                                        (item.filetype === "video/mp4") ? (
-                                                            <VideocamIcon color="secondary" style={{ marginRight: '6px', fontSize: '24px' }}></VideocamIcon>
-                                                        ) : (<></>)
-                                                    }
-                                                    {
-                                                        (item.filetype) ? (item.filename) : (item.text)
-                                                    }
-
-                                                </a>
+                                        <div className="messagebox">
+                                            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                                <h5 className='fontemmm'>{item.name}</h5>
+                                                <div className="timestamp" style={{ marginLeft: '11.25px', marginBottom: '-2px' }}>
+                                                    <p className='tieemmm' style={{ fontSize: '1.15em', color: '#828282', lineHeight: '25px', letterSpacing: '-0.035em', fontFamily: 'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
+                                                </div>
+                                                
                                             </div>
-                                        ) : (
-                                            <p key={index} className="chat__body__message">
-                                                {item.text}
-                                            </p>
-                                        )
-                                    }
-                                </div>
-                            </div>
+                                            {
+                                                item.text.includes('http') ? (
+                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '10px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
+                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px' }}>
+                                                            {
+
+                                                                (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
+                                                                    <ImageIcon color="primary" style={{ marginRight: '6px', fontSize: '24px' }}></ImageIcon>
+                                                                ) : (<></>)
+                                                            }
+                                                            {
+
+                                                                (item.filetype === "application/pdf") ? (
+                                                                    <PictureAsPdfIcon sx={{ color: red[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></PictureAsPdfIcon>
+                                                                ) : (<></>)
+                                                            }
+                                                            {
+
+                                                                (item.filetype === "audio/mpeg") ? (
+                                                                    <LibraryMusicIcon sx={{ color: teal[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></LibraryMusicIcon>
+                                                                ) : (<></>)
+                                                            }
+                                                            {
+
+                                                                (item.filetype === "video/mp4") ? (
+                                                                    <VideocamIcon color="secondary" style={{ marginRight: '6px', fontSize: '24px' }}></VideocamIcon>
+                                                                ) : (<></>)
+                                                            }
+                                                            {
+                                                                (item.filetype) ? (item.filename) : (item.text)
+                                                            }
+
+                                                        </a>
+                                                    </div>
+                                                ) : (
+                                                    <p key={index} className="chat__body__message">
+                                                        {item.text} 
+                                                        {/* {(item.name===props.name)?
+                                                        <DeleteOutlineIcon style={{width:'19px',marginLeft:'19px',marginBottom:'-1px',cursor:'pointer'}}/>:<></>} */}
+                                                    </p>
+                                                )
+                                            }
+                                        </div>
+                                    </div>}
+                        </>
                         )
                     })
                 }
