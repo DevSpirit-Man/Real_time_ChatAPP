@@ -113,8 +113,8 @@ export const Leftbar = (props) => {
           }
         </div>
         <div className="switchroom" style={{ width: '100%', position: 'absolute', bottom: '68px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Button onClick={() => { props.switchroom() }} size="small" sx={{ color: '#828282', font: 'Noto Sans', fontWeight: '600', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.019em', textTransform: 'lowercase',padding:'5px 12px', }}>
-            <span style={{ textTransform: 'uppercase' }}>s</span> witch &nbsp; <span style={{ textTransform: 'uppercase' }}> r</span>oom 
+          <Button onClick={() => { props.switchroom() }} size="small" sx={{ color: '#828282', font: 'Noto Sans', fontWeight: '600', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.019em', textTransform: 'lowercase', padding: '5px 12px', }}>
+            <span style={{ textTransform: 'uppercase' }}>s</span> witch &nbsp; <span style={{ textTransform: 'uppercase' }}> r</span>oom
           </Button>
         </div>
         <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '55px', backgroundColor: '#0B090C', width: '100%', borderTop: '2px solid rgb(26,26,26)' }}>

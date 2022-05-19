@@ -34,7 +34,7 @@ export const Room = (props) => {
   }
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '21px', alignItems: 'center', backgroundColor: '#252329', padding: '43px 56px', borderRadius: '8px', width: '422px' }}>
-      <div className="usernameandall">
+      <div className="usernameandall" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Avatar sx={{ width: '115px', height: '115px' }} alt={props.name} src={props.photo} />
         <h2 style={{ margin: 'auto', marginTop: '20px', color: 'white', fontFamily: 'sans-serif', marginBottom: '10px', fontWeight: '400' }}>{props.name}</h2>
       </div>
