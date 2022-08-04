@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import ChatIcon from '@mui/icons-material/Chat';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import { db } from './firebase';
-import { Avatar, Button } from '@mui/material';
+import { Button } from '@mui/material';
 // import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import MenuIcon from '@mui/icons-material/Menu';
 import './css/Responsive.css'
@@ -16,6 +15,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import logo from './ico/logo.png'
+
 
 export const Leftbar = (props) => {
 
@@ -74,19 +75,26 @@ export const Leftbar = (props) => {
       <Toaster />
       <div className="hamburger">
         {
-          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '19px', marginBottom: '-7.15px', color: 'white' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '17px', marginBottom: '-6.65px' }}></ArrowBackIosNewIcon></button>)
+          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '19px', marginBottom: '-6.15px', color: 'white' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '17px', marginBottom: '-7.55px' }}></ArrowBackIosNewIcon></button>)
         }
 
       </div>
       <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(18,15,19)', minWidth: '284px', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
 
-        <div className="roomdetails" style={{ height: '48.75px', borderBottom: '2px solid rgb(26,26,26)', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: '#120F13' }}>
-          <ChatIcon color="diabled" style={{ marginLeft: '30px', width: '25px', marginBottom: '-4px' }}></ChatIcon>
-          <h4 style={{ marginLeft: '9px', marginTop: '0px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '18px', letterSpacing: '-0.035em' }}>Chatzoid</h4>
+        <div className="roomdetails" style={{ height: '48.75px', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: '#120F13',marginTop:'6px' }}>
+          {/* <ChatIcon color="diabled" style={{ marginLeft: '30px', width: '25px', marginBottom: '-4px' }}></ChatIcon> */}
+          <img src={logo} style={{marginLeft: '30px',width:'32px'}} alt=""></img>
+
+          <h4 style={{ marginLeft: '9px', marginTop: '0px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '18px', letterSpacing: '-0.035em',fontFamily:'Poppins' }}>Chatzoid</h4>
         </div>
 
         <div className="rommspecificidandp" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '34px' }}>
-          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.85px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>{props.roomid}<ContentCopyIcon color="primary" style={{ marginLeft: '12px', width: '18.25px', marginBottom: '-6px', cursor: 'pointer' }} onClick={() => { navigator.clipboard.writeText(props.roomid); toast.success('Room id copied to clipboard'); }} /></p>
+          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.85px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>{props.roomid}<ContentCopyIcon color="primary" style={{ marginLeft: '12px', width: '18.25px', marginBottom: '-6px', cursor: 'pointer' }} onClick={() => { navigator.clipboard.writeText(props.roomid); toast.success('Room id copied to clipboard',{
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
+            }); }} /></p>
 
         </div>
 
@@ -105,7 +113,7 @@ export const Leftbar = (props) => {
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px', marginBottom: '12px' }}>
                   {/* <FiberManualRecordIcon color="disabled" style={{ width: '10px', marginLeft: '29.99px', marginTop: '1px' }} /> */}
                   <div className="imagebox" style={{ width: '42px', height: '42px', borderRadius: '100%', marginLeft: '30.99px' }}>
-                    <Avatar src={value} style={{ width: '42px', height: '42px' }} alt="" />
+                    <img src={value} style={{ width: '42px', height: '43px',borderRadius:'50%' }} alt="" />
                   </div>
                   <p style={{ color: '#828282', marginLeft: '15.5px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15.58px', letterSpacing: '-0.035em' }}>{key}</p>
                 </div>)
@@ -113,7 +121,7 @@ export const Leftbar = (props) => {
           }
         </div>
         <div className="switchroom" style={{ width: '100%', position: 'absolute', bottom: '68px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Button onClick={() => { props.switchroom() }} size="small" sx={{ color: '#828282', font: 'Noto Sans', fontWeight: '600', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.019em', textTransform: 'lowercase', padding: '5px 12px', }}>
+          <Button onClick={() => { props.switchroom() }} size="small" sx={{ color: '#828282', font: 'Noto Sans', fontWeight: '600', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.019em', textTransform: 'lowercase', padding: '5px 12px',fontFamily: 'Poppins' }}>
             <span style={{ textTransform: 'uppercase' }}>s</span> witch &nbsp; <span style={{ textTransform: 'uppercase' }}> r</span>oom
           </Button>
         </div>
@@ -127,17 +135,17 @@ export const Leftbar = (props) => {
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
           >
-            <DialogTitle id="alert-dialog-title">
+            <DialogTitle id="alert-dialog-title" sx={{fontFamily: 'Poppins'}}>
               Logout
             </DialogTitle>
             <DialogContent>
-              <DialogContentText id="alert-dialog-description">
+              <DialogContentText id="alert-dialog-description" sx={{fontFamily: 'Poppins'}}>
                 Are you sure , do you want to logout
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => props.logout()}>yes</Button>
-              <Button onClick={handleClose} autoFocus>
+              <Button sx={{fontFamily: 'Poppins'}} onClick={() => props.logout()}>yes</Button>
+              <Button sx={{fontFamily: 'Poppins'}} onClick={handleClose} autoFocus>
                 No
               </Button>
             </DialogActions>

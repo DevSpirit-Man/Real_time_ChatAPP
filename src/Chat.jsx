@@ -18,7 +18,7 @@ import AttachmentIcon from '@mui/icons-material/Attachment';
 // import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import SendIcon from '@mui/icons-material/Send';
 import './css/Responsive.css'
-
+import ReactTimeAgo from 'react-time-ago'
 
 function Chat(props) {
     const [input, setInput] = useState("")
@@ -82,6 +82,10 @@ function Chat(props) {
             toast.error('Unsupported file format', {
                 duration: 1200,
                 position: 'top-center',
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
             });
         }
     }
@@ -124,6 +128,10 @@ function Chat(props) {
                     toast.success('Done uploading', {
                         duration: 1200,
                         position: 'top-center',
+                        style: {
+                            fontFamily: 'Poppins',
+                            fontSize: '12.5px'
+                          },
                     });
                 });
             }
@@ -133,7 +141,6 @@ function Chat(props) {
         <div className='chatbox'>
             <Toaster />
             <div className="chat__header" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-
                 <Navbar roomid={props.roomid}></Navbar>
             </div>
             <div className="uploadprogress">
@@ -155,25 +162,29 @@ function Chat(props) {
                                                 autoHideDuration={2500}
                                                 onClose={handleClose}
                                                 message={item.text}
+                                                sx={{fontFamily:'Poppins'}}
                                             /> : <></> : <></>
 
                                 ) :
                                     <div className="messageboxcont">
                                         <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.15vw' }}>
-                                            <img style={{ width: '55px', height: '57px' }} src={item.userimg} alt="" />
+                                            <img style={{ width: '55px', height: '57px',borderRadius:'50%'}} src={item.userimg} alt="" />
                                         </div>
                                         <div className="messagebox">
                                             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                                <h5 className='fontemmm'>{item.name}</h5>
+                                                <p className='fontemmm'>{item.name}</p>
                                                 <div className="timestamp" style={{ marginLeft: '11.25px', marginBottom: '-2px' }}>
-                                                    <p className='tieemmm' style={{ fontSize: '1.15em', color: '#828282', lineHeight: '25px', letterSpacing: '-0.035em', fontFamily: 'Noto Sans' }}>{item.timestamp?.toDate().toString().slice(0, 21)}</p>
+                                                    <p className='tieemmm' style={{ fontSize: '11.5px', color: '#828282', lineHeight: '25px', letterSpacing: '-0.035em', fontFamily: 'Poppins' }}>{
+                                                        item.timestamp?
+                                                        <ReactTimeAgo date={Date.parse(item.timestamp.toDate())} locale="en-US"/>:<></>
+                                                    }</p>
                                                 </div>
                                                 
                                             </div>
                                             {
                                                 item.text.includes('http') ? (
                                                     <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '3px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
-                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px' }}>
+                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px',fontSize:'13px' }}>
                                                             {
 
                                                                 (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (

@@ -3,7 +3,6 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, up
 import Button from '@mui/material/Button';
 // import GoogleIcon from '@mui/icons-material/Google';
 import toast, { Toaster } from 'react-hot-toast';
-import ChatIcon from '@mui/icons-material/Chat';
 import { Avatar, DialogContentText, TextField } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -13,6 +12,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 // import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import EditIcon from '@mui/icons-material/Edit';
 import Fab from '@mui/material/Fab';
+import logo from './ico/logo.png'
+
 
 export const Login = (props) => {
     const auth = getAuth();
@@ -57,11 +58,21 @@ export const Login = (props) => {
     }
     async function senduserdetails() {
         if (!email) {
-            toast.error('Enter email');
+            toast.error('Enter email',{
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
+            });
             return
         }
         if (!password) {
-            toast.error('Enter Password');
+            toast.error('Enter Password',{
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
+            });
             return
         }
         signInWithEmailAndPassword(auth, email, password)
@@ -71,20 +82,40 @@ export const Login = (props) => {
                 props.getuser(user)
             })
             .catch((error) => {
-                toast.error(error.message.slice(16))
+                toast.error(error.message.slice(16),{
+                    style: {
+                        fontFamily: 'Poppins',
+                        fontSize: '12.5px'
+                      },
+                })
             });
     }
     async function signup() {
         if (!email) {
-            toast.error('Enter email');
+            toast.error('Enter email',{
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
+            });
             return
         }
         if (!password) {
-            toast.error('Enter Password');
+            toast.error('Enter Password',{
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
+            });
             return
         }
         if (!name) {
-            toast.error('Enter Name');
+            toast.error('Enter Name',{
+                style: {
+                    fontFamily: 'Poppins',
+                    fontSize: '12.5px'
+                  },
+            });
             return
         }
         createUserWithEmailAndPassword(auth, email, password)
@@ -101,7 +132,12 @@ export const Login = (props) => {
 
             })
             .catch((error) => {
-                toast.error(error.message.slice(16))
+                toast.error(error.message.slice(16),{
+                    style: {
+                        fontFamily: 'Poppins',
+                        fontSize: '12.5px'
+                      },
+                })
             });
     }
     const handleClose = () => {
@@ -113,10 +149,20 @@ export const Login = (props) => {
     const resetPassword = () => {
         sendPasswordResetEmail(auth, resetemail)
             .then(() => {
-                toast.success("Check your mail for password reset link ")
+                toast.success("Check your mail for password reset link ",{
+                    style: {
+                        fontFamily: 'Poppins',
+                        fontSize: '12.5px'
+                      },
+                })
             })
             .catch((error) => {
-                toast.error(error.message.slice(16))
+                toast.error(error.message.slice(16),{
+                    style: {
+                        fontFamily: 'Poppins',
+                        fontSize: '12.5px'
+                      },
+                })
             });
 
     }
@@ -143,10 +189,12 @@ export const Login = (props) => {
 
         <div className='login' style={loginstyle}>
             <Toaster />
-            <ChatIcon color="disabled" sx={{ fontSize: 140 }} ></ChatIcon>
+            {/* <ChatIcon color="disabled" sx={{ fontSize: 140 }} ></ChatIcon> */}
+            <img src={logo} style={{width:'145px',marginBottom:'8px'}} alt=""></img>
             <h2 style={{ color: 'white', fontWeight: '400' }}>Chatzoid - Sign In</h2>
             {/* <p style={{ fontSize: '16px', width: '295px', marginTop: '9px', color: 'white' }}>we are so exicted to see you again</p> */}
             <TextField
+            inputProps={{ style: { fontSize: '13.75px', fontFamily: 'Poppins' } }}
                 autoFocus
                 id="standard-password-input"
                 label="Email"
@@ -159,6 +207,7 @@ export const Login = (props) => {
                 style={{ width: '92%', marginTop: '29px' }}
             />
             <TextField
+            inputProps={{ style: { fontSize: '13.75px', fontFamily: 'Poppins' } }}
                 id="standard-password-input"
                 label="Password"
                 type="password"
@@ -168,14 +217,15 @@ export const Login = (props) => {
                 onChange={e => setpassword(e.target.value)}
                 style={{ width: '92%', marginTop: '19px' }}
             />
-            <Button sx={{ marginTop: '21px' }} onClick={handleClickOpen3} variant="text">Forgot Password ?</Button>
+            <Button sx={{ marginTop: '21px' ,fontFamily: 'Poppins' }} onClick={handleClickOpen3} variant="text">Forgot Password ?</Button>
             <Dialog open={open3} onClose={handleClose3}>
-                <DialogTitle>Forgot Password ? </DialogTitle>
+                <DialogTitle sx={{fontFamily: 'Poppins' }}>Forgot Password ? </DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
+                    <DialogContentText sx={{fontSize: '13.75px', fontFamily: 'Poppins'}}>
                         Enter your email to get password reset link
                     </DialogContentText>
                     <TextField
+            inputProps={{ style: { fontSize: '13.75px', fontFamily: 'Poppins' } }}
                         style={{ marginTop: '18px' }}
                         value={resetemail}
                         onChange={e => setresetemail(e.target.value)}
@@ -189,18 +239,18 @@ export const Login = (props) => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose3}>Cancel</Button>
-                    <Button onClick={resetPassword}>Reset</Button>
+                    <Button sx={{fontFamily: 'Poppins' }} onClick={handleClose3}>Cancel</Button>
+                    <Button sx={{fontFamily: 'Poppins' }} onClick={resetPassword}>Reset</Button>
                 </DialogActions>
             </Dialog>
             <Button variant="contained" sx={{ marginTop: '19px', width: '115px', backgroundColor: '#5090D3' }} onClick={senduserdetails} size="large">
-                <p style={{ width: '190px', color: 'white', fontWeight: '500', marginLeft: '3px', marginBottom: '-3px' }}>Sign In</p>
+                <p style={{ width: '190px', color: 'white', fontWeight: '500', marginLeft: '3px', marginBottom: '-3px',fontFamily: 'Poppins'  }}>Sign In</p>
             </Button>
             <Button variant="text" sx={{ marginTop: '16px', width: '105px', position: 'absolute', top: '0', right: '9px' }} onClick={handleClickOpen} size="large">
-                <p style={{ width: '190px', color: '#5090D3', fontWeight: '600', marginLeft: '3px', marginBottom: '-3px' }}>Sign Up</p>
+                <p style={{ width: '190px', color: '#5090D3', fontWeight: '600', marginLeft: '3px', marginBottom: '-3px',fontFamily: 'Poppins'  }}>Sign Up</p>
             </Button>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}> Signup</DialogTitle>
+                <DialogTitle style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',fontFamily: 'Poppins'  }}> Signup</DialogTitle>
                 <DialogContent>
                     <div className="avatar" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                         {/* <Button onClick={goLeft} type="text" ><ArrowLeftIcon  style={{width: '50px', height: '55px' }} /></Button> */}
@@ -209,7 +259,7 @@ export const Login = (props) => {
                             <EditIcon />
                         </Fab>
                         <Dialog maxWidth="xl" open={open1} onClose={handleClose1}>
-                            <DialogTitle style={{ margin: 'auto' }}>Select Avatar</DialogTitle>
+                            <DialogTitle style={{ margin: 'auto',fontFamily: 'Poppins'  }}>Select Avatar</DialogTitle>
                             <DialogContent style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
                                 <Avatar
                                     src="https://firebasestorage.googleapis.com/v0/b/chat-app-f81cf.appspot.com/o/avatars%2Favataaars%20(5).png?alt=media&token=ac625817-f05e-4e16-9751-00d972bf7eb6"
@@ -272,6 +322,7 @@ export const Login = (props) => {
                         {/* <Button onClick={goRight} type="text"><ArrowRightIcon  style={{width: '50px', height: '55px' }} /></Button> */}
                     </div>
                     <TextField
+            inputProps={{ style: { fontSize: '13.75px', fontFamily: 'Poppins' } }}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -284,6 +335,7 @@ export const Login = (props) => {
                         sx={{ marginBottom: '16px' }}
                     />
                     <TextField
+            inputProps={{ style: { fontSize: '13.75px', fontFamily: 'Poppins' } }}
                         margin="dense"
                         id="name"
                         label="Password atleast 6 digits"
@@ -295,6 +347,7 @@ export const Login = (props) => {
                         sx={{ marginBottom: '16px' }}
                     />
                     <TextField
+            inputProps={{ style: { fontSize: '13.75px', fontFamily: 'Poppins' } }}
                         margin="dense"
                         id="name"
                         label="Enter Your Name"
@@ -306,7 +359,7 @@ export const Login = (props) => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={signup}>Signup</Button>
+                    <Button sx={{fontFamily: 'Poppins' }} onClick={signup}>Signup</Button>
                 </DialogActions>
             </Dialog>
         </div>

@@ -4,8 +4,8 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "chatzoid",
-    "short_name": "chatzoid",
+    "name": "Chatzoid",
+    "short_name": "Chatzoid",
     "description": "A real-time chat application",
     "icons": [
         {
