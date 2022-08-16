@@ -1,4 +1,4 @@
-import { Avatar, Button, Input } from '@mui/material'
+import { Button, Input } from '@mui/material'
 import React, { useState } from 'react'
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -35,7 +35,7 @@ export const Room = (props) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: '21px', alignItems: 'center', backgroundColor: '#252329', padding: '43px 56px', borderRadius: '8px', width: '422px' }}>
       <div className="usernameandall" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Avatar sx={{ width: '115px', height: '115px' }} alt={props.name} src={props.photo} />
+        <img style={{ width: '115px', height: '115px' }} alt={props.name} src={props.photo} />
         <h2 style={{ margin: 'auto', marginTop: '20px', color: 'white', fontFamily: 'Poppins', marginBottom: '10px', fontWeight: '400' }}>{props.name}</h2>
       </div>
       <Input autoFocus placeholder="Enter a room Id" inputProps={{ style: { fontSize: '14.75px', fontFamily: 'Poppins' } }} sx={{ width: '280px', color: 'white' }} value={roomid}
