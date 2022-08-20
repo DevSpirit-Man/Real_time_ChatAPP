@@ -167,8 +167,8 @@ function Chat(props) {
 
                                 ) :
                                     <div className="messageboxcont">
-                                        <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '1.15vw' }}>
-                                            <img style={{ width: '55px', height: '57px',borderRadius:'50%'}} src={item.userimg} alt="" />
+                                        <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '0.95vw' }}>
+                                            <img style={{ width: '59px', height: '61px',borderRadius:'40%'}} src={item.userimg} alt="" />
                                         </div>
                                         <div className="messagebox">
                                             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -188,7 +188,7 @@ function Chat(props) {
                                                             {
 
                                                                 (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
-                                                                    <ImageIcon color="primary" style={{ marginRight: '6px', fontSize: '24px' }}></ImageIcon>
+                                                                    <ImageIcon style={{ marginRight: '6px', fontSize: '24px',color:'white' }}></ImageIcon>
                                                                 ) : (<></>)
                                                             }
                                                             {
