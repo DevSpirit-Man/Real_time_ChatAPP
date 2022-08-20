@@ -15,7 +15,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import logo from './ico/logo.png'
+import logo from './ico/logo1.png'
 
 
 export const Leftbar = (props) => {
@@ -81,11 +81,11 @@ export const Leftbar = (props) => {
       </div>
       <div className='leftbar' id='showleft' style={{ backgroundColor: 'rgb(18,15,19)', minWidth: '284px', position: 'relative', height: '100%', flex: '0.17', transition: 'all 0.25s' }}>
 
-        <div className="roomdetails" style={{ height: '48.75px', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: '#120F13',marginTop:'9px' }}>
+        <div className="roomdetails" style={{ height: '48.75px', display: 'flex', alignItems: 'center', position: 'relative', backgroundColor: '#120F13',marginTop:'5.5px' }}>
           {/* <ChatIcon color="diabled" style={{ marginLeft: '30px', width: '25px', marginBottom: '-4px' }}></ChatIcon> */}
-          <img src={logo} style={{marginLeft: '23px',width:'40px'}} alt=""></img>
+          <img src={logo} style={{marginLeft: '23px',width:'45px'}} alt=""></img>
 
-          <h4 style={{ marginLeft: '9px', marginTop: '0px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '18px', letterSpacing: '-0.035em',fontFamily:'Poppins' }}>Chatzoid</h4>
+          <h4 style={{ marginLeft: '7px', marginTop: '0px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '18px', letterSpacing: '-0.035em',fontFamily:'Poppins' }}>Chatzoid</h4>
         </div>
 
         <div className="rommspecificidandp" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '34px' }}>

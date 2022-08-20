@@ -12,7 +12,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 // import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import EditIcon from '@mui/icons-material/Edit';
 import Fab from '@mui/material/Fab';
-import logo from './ico/logo.png'
+import logo from './ico/logo1.png'
 
 
 export const Login = (props) => {
