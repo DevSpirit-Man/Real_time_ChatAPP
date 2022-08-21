@@ -146,7 +146,7 @@ function Chat(props) {
             </div>
             <div className="uploadprogress">
                 {
-                    uploading ? (<LinearProgress sx={{ height: '2px' }} />) : (<></>)
+                    uploading ? (<LinearProgress sx={{ height: '1px' }} />) : (<></>)
                 }
             </div>
 
@@ -184,30 +184,30 @@ function Chat(props) {
                                             </div>
                                             {
                                                 item.text.includes('http') ? (
-                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '3px', overflowX: 'scroll', marginBottom: '-3px', zIndex: '99' }}>
-                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px',fontSize:'13px' }}>
+                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '3px', overflowX: 'scroll', marginBottom: '0px', zIndex: '99',minWidth:'inherit' }}>
+                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{  paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px',fontSize:'13px' }}>
                                                             {
 
                                                                 (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
-                                                                    <ImageIcon style={{ marginRight: '6px', fontSize: '24px',color:'white' }}></ImageIcon>
+                                                                    <ImageIcon style={{ marginRight: '7.5px', fontSize: '24px',color:'white' }}></ImageIcon>
                                                                 ) : (<></>)
                                                             }
                                                             {
 
                                                                 (item.filetype === "application/pdf") ? (
-                                                                    <PictureAsPdfIcon sx={{ color: red[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></PictureAsPdfIcon>
+                                                                    <PictureAsPdfIcon sx={{ color: red[500] }} style={{ marginRight: '7.5px', fontSize: '24px' }}></PictureAsPdfIcon>
                                                                 ) : (<></>)
                                                             }
                                                             {
 
                                                                 (item.filetype === "audio/mpeg") ? (
-                                                                    <LibraryMusicIcon sx={{ color: teal[500] }} style={{ marginRight: '6px', fontSize: '24px' }}></LibraryMusicIcon>
+                                                                    <LibraryMusicIcon sx={{ color: teal[500] }} style={{ marginRight: '7.5px', fontSize: '24px' }}></LibraryMusicIcon>
                                                                 ) : (<></>)
                                                             }
                                                             {
 
                                                                 (item.filetype === "video/mp4") ? (
-                                                                    <VideocamIcon color="secondary" style={{ marginRight: '6px', fontSize: '24px' }}></VideocamIcon>
+                                                                    <VideocamIcon color="secondary" style={{ marginRight: '7.5px', fontSize: '24px' }}></VideocamIcon>
                                                                 ) : (<></>)
                                                             }
                                                             {

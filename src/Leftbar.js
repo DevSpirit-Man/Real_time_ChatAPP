@@ -75,7 +75,7 @@ export const Leftbar = (props) => {
       <Toaster />
       <div className="hamburger">
         {
-          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '22px', marginBottom: '-6.15px', color: 'white',marginLeft:'-7.95px' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '18px', marginBottom: '-8.85px' }}></ArrowBackIosNewIcon></button>)
+          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '22px', marginBottom: '-6.15px', color: 'white',marginLeft:'-4.95px' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '18px', marginBottom: '-8.85px' }}></ArrowBackIosNewIcon></button>)
         }
 
       </div>
@@ -89,7 +89,7 @@ export const Leftbar = (props) => {
         </div>
 
         <div className="rommspecificidandp" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '34px' }}>
-          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.85px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>{props.roomid}<ContentCopyIcon style={{ marginLeft: '12px', width: '18.25px', marginBottom: '-6px', cursor: 'pointer',color:'white' }} onClick={() => { navigator.clipboard.writeText(props.roomid); toast.success('Room id copied to clipboard',{
+          <p style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.85px', letterSpacing: '-0.035em', marginLeft: '31px', marginRight: '26px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>{props.roomid}<ContentCopyIcon style={{ marginLeft: '12px', width: '18.25px', marginBottom: '-1.8px', cursor: 'pointer',color:'white' }} onClick={() => { navigator.clipboard.writeText(props.roomid); toast.success('Room id copied to clipboard',{
                 style: {
                     fontFamily: 'Poppins',
                     fontSize: '12.5px'

@@ -86,9 +86,11 @@
     width: 55px;
     height: 57px;
     border-radius: 7px;
-    margin-top: -6px;
-    margin-right: 1px;
-    margin-left: 0.95vw
+    margin-top: 3px;
+    margin-right: 3px;
+    margin-left: 0.95vw;
+    display: flex;
+    justify-content: start;
 }
 
 .imgboximg {
@@ -125,7 +127,7 @@
     }
 
     .memheader {
-        margin-top: 22px;
+        margin-top: 12px;
     }
 }
 
@@ -148,7 +150,6 @@
 .chat__body__message {
     display: flex;
     flex-direction: row;
-    align-items: center;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -162,11 +163,9 @@
 }
 
 .messageboxcont {
-    width: 80%;
     margin-top: 19px;
     margin-bottom: 0px;
     display: flex;
-    align-items: center;
     margin-left: 28.75px;
     padding-top: 6px;
 }
