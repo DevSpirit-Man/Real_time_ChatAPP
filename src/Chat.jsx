@@ -19,6 +19,7 @@ import AttachmentIcon from '@mui/icons-material/Attachment';
 import SendIcon from '@mui/icons-material/Send';
 import './css/Responsive.css'
 import ReactTimeAgo from 'react-time-ago'
+import './css/Responsive.css'
 
 function Chat(props) {
     const [input, setInput] = useState("")
@@ -167,8 +168,8 @@ function Chat(props) {
 
                                 ) :
                                     <div className="messageboxcont">
-                                        <div className="imgbox" style={{ width: '55px', height: '57px', borderRadius: '7px', marginTop: '-6px', marginRight: '1px', marginLeft: '0.95vw' }}>
-                                            <img style={{ width: '59px', height: '61px',borderRadius:'40%'}} src={item.userimg} alt="" />
+                                        <div className="imgbox">
+                                            <img className='imgboximg' src={item.userimg} alt="" />
                                         </div>
                                         <div className="messagebox">
                                             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>

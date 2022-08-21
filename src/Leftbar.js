@@ -75,7 +75,7 @@ export const Leftbar = (props) => {
       <Toaster />
       <div className="hamburger">
         {
-          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '22px', marginBottom: '-6.15px', color: 'white' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '18px', marginBottom: '-8.85px' }}></ArrowBackIosNewIcon></button>)
+          (!show) ? (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}><MenuIcon style={{ margin: '0', fontSize: '22px', marginBottom: '-6.15px', color: 'white',marginLeft:'-7.95px' }} ></MenuIcon></button>) : (<button onClick={() => { menu() }} style={{ width: 'fit-content', margin: '0', outline: 'none', border: 'none', backgroundColor: 'transparent', cursor: 'pointer', color: 'white' }}><ArrowBackIosNewIcon style={{ fontSize: '18px', marginBottom: '-8.85px' }}></ArrowBackIosNewIcon></button>)
         }
 
       </div>
@@ -103,7 +103,7 @@ export const Leftbar = (props) => {
         </div>
 
 
-        <h5 style={{ color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '16.85px', letterSpacing: '-0.035em', marginTop: '29px', marginLeft: '29px', marginBottom: '12px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>Members &nbsp; :</h5>
+        <h5 className="memheader">Members &nbsp; : </h5>
         <div className="sepater" style={{ overflowY: 'scroll', height: '50vh' }}>
           <div className="roomidandstuff" style={{ display: 'flex', flexDirection: 'row', padding: '0 29px', marginTop: '-2.5px', marginBottom: '20.5px' }}>
           </div>

@@ -1,48 +1,65 @@
-.hamburger{
+.hamburger {
     position: absolute;
     z-index: 169;
-    top:12px;
-    left:1.58em;
+    top: 12px;
+    left: 1.58em;
     display: none;
 }
-@media screen and (max-width:762px){
-    .leftbar{
+
+@media screen and (max-width:762px) {
+    .leftbar {
         display: none;
     }
-    .hamburger{
+
+    .hamburger {
         display: block;
     }
-    .navbarmenu{
+
+    .navbarmenu {
         margin-left: 34px;
     }
-    .roomdetails{
+
+    .roomdetails {
         padding-left: 42px;
     }
-    .chat__body__message{
+
+    .chat__body__message {
         width: 90%;
     }
+
     .chat__footer {
-        width:91vw;
+        width: 91vw;
     }
-    .messageboxcont{
+
+    .messageboxcont {
         margin-left: 9px;
     }
+
+    .imgboximg {
+        width: 50px;
+        height: 51px;
+        border-radius: 40%
+    }
 }
-@media screen and (max-width:762px){
-    .fontemmm{
+
+@media screen and (max-width:762px) {
+    .fontemmm {
         font-size: 0.85em;
         width: 175px;
     }
-    .tieemmm{
+
+    .tieemmm {
         font-size: 12px;
         width: 150px;
     }
 }
-.navbarmenu{
-    height:52px;
-    border-bottom:2px solid #201e1e;
-    display:flex;
-    align-items:center;
+
+.navbarmenu {
+    height: 52px;
+    border-bottom: 2px solid #201e1e;
+    display: flex;
+    align-items: center;
     padding-left: 35px;
     width: 100%;
 }
+
