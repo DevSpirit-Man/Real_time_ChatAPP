@@ -236,4 +236,5 @@
 .fontemmm {
     font-size: 15px;
     font-family: Poppins;
+    min-width: fit-content;
 }
