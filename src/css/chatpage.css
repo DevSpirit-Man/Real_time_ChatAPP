@@ -83,19 +83,18 @@
 }
 
 .imgbox {
-    width: 55px;
-    height: 57px;
-    border-radius: 7px;
+    width: 59px;
+    height: 59px;
     margin-top: 3px;
     margin-right: 3px;
     margin-left: 0.95vw;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .imgboximg {
     width: 59px;
-    height: 61px;
+    height: 59px;
     border-radius: 40%;
 }
 
@@ -117,7 +116,7 @@
 @media screen and (max-width:565px) {
     .imgboximg {
         width: 45px;
-        height: 47px;
+        height: 45px;
         margin-right: -4px;
     }
 

@@ -6,9 +6,11 @@
     display: none;
 }
 
+
 @media screen and (max-width:762px) {
     .leftbar {
         display: none;
+       
     }
 
     .hamburger {
@@ -32,7 +34,7 @@
     }
 
     .imgboximg {
-        width: 50px;
+        width: 51px;
         height: 51px;
         border-radius: 40%
     }
