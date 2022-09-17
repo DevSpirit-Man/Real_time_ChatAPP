@@ -113,7 +113,7 @@ export const Leftbar = (props) => {
                 <div className="people" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px', marginBottom: '12px' }}>
                   {/* <FiberManualRecordIcon color="disabled" style={{ width: '10px', marginLeft: '29.99px', marginTop: '1px' }} /> */}
                   <div className="imagebox" style={{ width: '42px', height: '42px', borderRadius: '100%', marginLeft: '30.99px' }}>
-                    <img src={value} style={{ width: '42px', height: '43px',borderRadius:'40%' }} alt="" />
+                    <img src={value} style={{ width: '43px', height: '43px',borderRadius:'40%' }} alt="" />
                   </div>
                   <p style={{ color: '#828282', marginLeft: '15.5px', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15.58px', letterSpacing: '-0.035em' }}>{key}</p>
                 </div>)
@@ -126,7 +126,7 @@ export const Leftbar = (props) => {
           </Button>
         </div>
         <div className="userdetails" style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'absolute', bottom: '0px', height: '57px', backgroundColor: '#0B090C', width: '100%', borderTop: '1px solid rgb(22 21 21)' }}>
-          <img src={props.photo} style={{ width: '40px', height: '42px', borderRadius: '40%', marginLeft: '24px', marginTop: '-1.0px' }} alt="" />
+          <img src={props.photo} style={{ width: '40px', height: '40px', borderRadius: '40%', marginLeft: '24px', marginTop: '-1.0px' }} alt="" />
           <h5 style={{ marginLeft: '12px', color: 'white', font: 'Noto Sans', fontWeight: '500', fontStyle: 'normal', fontSize: '15px', letterSpacing: '-0.035em', zIndex: '99' }}>{props.name}</h5>
           <button onClick={() => { handleClickOpen() }} style={{ cursor: 'pointer', width: 'fit-content%', marginLeft: '221px', outline: 'none', border: 'none', backgroundColor: 'transparent', position: 'absolute', left: '29px', marginTop: '4px' }}><LogoutIcon style={{ width: '20.2px',color:'white'}}></LogoutIcon></button>
           <Dialog
