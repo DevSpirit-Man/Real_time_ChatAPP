@@ -50,10 +50,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 48px;
+    height: 58px;
     padding: 0 9px;
     position: absolute;
-    bottom: 3.2px;
+    bottom: 3.8px;
     width: 98.15%;
 }
 
@@ -93,9 +93,9 @@
 }
 
 .imgboximg {
-    width: 59px;
-    height: 59px;
-    border-radius: 40%;
+    width: 49px;
+    height: 49px;
+    border-radius: 11px;
 }
 
 .memheader {

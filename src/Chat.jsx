@@ -54,7 +54,7 @@ function Chat(props) {
         () => {
             onSnapshot(qr, (snapshot) => setMessage(snapshot.docs.map((doc) => doc.data())))
         }
-        , []);
+        , [props.roomid]);
     useEffect(() => {
         updateScroll()
     }, [message])
@@ -86,7 +86,7 @@ function Chat(props) {
                 style: {
                     fontFamily: 'Poppins',
                     fontSize: '12.5px'
-                  },
+                },
             });
         }
     }
@@ -132,7 +132,7 @@ function Chat(props) {
                         style: {
                             fontFamily: 'Poppins',
                             fontSize: '12.5px'
-                          },
+                        },
                     });
                 });
             }
@@ -163,7 +163,7 @@ function Chat(props) {
                                                 autoHideDuration={2500}
                                                 onClose={handleClose}
                                                 message={item.text}
-                                                sx={{fontFamily:'Poppins'}}
+                                                sx={{ fontFamily: 'Poppins' }}
                                             /> : <></> : <></>
 
                                 ) :
@@ -176,20 +176,20 @@ function Chat(props) {
                                                 <p className='fontemmm'>{item.name}</p>
                                                 <div className="timestamp" style={{ marginLeft: '11.25px', marginBottom: '-2px' }}>
                                                     <p className='tieemmm' style={{ fontSize: '11.5px', color: '#828282', lineHeight: '25px', letterSpacing: '-0.035em', fontFamily: 'Poppins' }}>{
-                                                        item.timestamp?
-                                                        <ReactTimeAgo date={Date.parse(item.timestamp.toDate())} locale="en-US"/>:<></>
+                                                        item.timestamp ?
+                                                            <ReactTimeAgo date={Date.parse(item.timestamp.toDate())} locale="en-US" /> : <></>
                                                     }</p>
                                                 </div>
-                                                
+
                                             </div>
                                             {
                                                 item.text.includes('http') ? (
-                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '3px', overflowX: 'scroll', marginBottom: '0px', zIndex: '99',minWidth:'inherit' }}>
-                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{  paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px',fontSize:'13px' }}>
+                                                    <div className="file" style={{ border: '0px solid #616161', borderRadius: '9px', padding: '2px 2px', marginTop: '5px', backgroundColor: '', paddingBottom: '3px', overflowX: 'scroll', marginBottom: '0px', zIndex: '99', minWidth: 'inherit' }}>
+                                                        <a key={index} href={item.text} target="_blank" className="chat__body__message" rel="noreferrer" style={{ paddingTop: '0px', textDecoration: 'none', MarginRight: '9px', marginLeft: '-3px', marginBottom: '-3px', fontSize: '13px' }}>
                                                             {
 
                                                                 (item.filetype === "image/png" || item.filetype === "image/jpg" || item.filetype === "image/jpeg") ? (
-                                                                    <ImageIcon style={{ marginRight: '7.5px', fontSize: '24px',color:'white' }}></ImageIcon>
+                                                                    <ImageIcon style={{ marginRight: '7.5px', fontSize: '24px', color: 'white' }}></ImageIcon>
                                                                 ) : (<></>)
                                                             }
                                                             {
@@ -218,7 +218,7 @@ function Chat(props) {
                                                     </div>
                                                 ) : (
                                                     <p key={index} className="chat__body__message">
-                                                        {item.text} 
+                                                        {item.text}
                                                         {/* {(item.name===props.name)?
                                                         <DeleteOutlineIcon style={{width:'19px',marginLeft:'19px',marginBottom:'-1px',cursor:'pointer'}}/>:<></>} */}
                                                     </p>
@@ -239,9 +239,9 @@ function Chat(props) {
                     <label htmlFor='filein' style={{ border: 'none', outline: 'none', cursor: 'pointer' }}><AttachmentIcon /></label>
 
                     {
-                        input ? (<Button onClick={() => { sendMessage() }} style={{ height: '35px', marginRight: '-19px' }} size="small">
-                            <SendIcon sx={{ fontSize: "21px" }}></SendIcon>
-                        </Button>) : (<Button disabled style={{ height: '35px', marginRight: '-19px' }} size="small">
+                        input ? (<Button onClick={() => { sendMessage() }} style={{ height: '35px', marginRight: '-13px', width: '30px' }} size="small">
+                            <SendIcon sx={{ fontSize: "21px", color: 'white' }}></SendIcon>
+                        </Button>) : (<Button disabled style={{ height: '35px', marginRight: '-13px', width: '30px' }} size="small">
                             <SendIcon sx={{ fontSize: "21px" }}></SendIcon>
                         </Button>)
                     }

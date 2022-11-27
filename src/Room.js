@@ -1,13 +1,18 @@
-import { Button, Input } from '@mui/material'
+import { Button, } from '@mui/material'
 import React, { useState } from 'react'
 import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
 import { db } from './firebase';
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { serverTimestamp } from 'firebase/firestore';
 export const Room = (props) => {
   const [roomid, setRoomid] = useState("")
   async function handleRoomID() {
+    const localRooms = localStorage.getItem('rooms')
+    if (!localRooms) {
+      localStorage.setItem('rooms', JSON.stringify([roomid]))
+    } else {
+      localStorage.setItem('rooms', JSON.stringify([...JSON.parse(localRooms), roomid]))
+    }
     const q = query(collection(db, roomid), where("alert", "==", true), where("name", "==", props.name));
     const querySnapshot = await getDocs(q);
     let arr = []
@@ -33,21 +38,22 @@ export const Room = (props) => {
     setRoomid(random)
   }
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', rowGap: '21px', alignItems: 'center', backgroundColor: '#252329', padding: '43px 56px', borderRadius: '8px', width: '422px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: '21px', alignItems: 'center', backgroundColor: '#252329', padding: '83px 56px', borderRadius: '18px', width: '422px' }}>
       <div className="usernameandall" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img style={{ width: '135px', height: '135px',borderRadius:'40%' }} alt={props.name} src={props.photo} />
+        <img style={{ width: '135px', height: '135px', borderRadius: '11px' }} alt={props.name} src={props.photo} />
         <h2 style={{ margin: 'auto', marginTop: '20px', color: 'white', fontFamily: 'Poppins', marginBottom: '10px', fontWeight: '400' }}>{props.name}</h2>
       </div>
-      <Input placeholder="Enter a room Id" inputProps={{ style: { fontSize: '14.75px', fontFamily: 'Poppins' } }} sx={{ width: '280px', color: 'white' }} value={roomid}
+      <input placeholder="Enter a room Id" value={roomid}
+        style={{ width: '85%', marginTop: '9px', fontSize: '13.75px', fontFamily: 'Poppins', backgroundColor: '#3C393F', height: '45px', border: 'none', outline: 'none', borderRadius: '7px', color: 'white', padding: '6px 13px' }}
         onChange={(e) => { setRoomid(e.target.value) }} />
       <div className="btns">
 
       </div>
-      <Button sx={{ fontWeight: 'bold',fontFamily: 'Poppins',color:'white' }} onClick={() => { handleGenerate() }}>Generate one</Button>
+      <Button sx={{ fontFamily: 'Poppins', color: 'white', textTransform: 'lowercase', marginTop: '-10px' }} onClick={() => { handleGenerate() }}>Generate one</Button>
       {
-        roomid ? (<Button onClick={() => { handleRoomID() }} sx={{ width: "179px", margin: 'auto', fontWeight: 'bold',fontFamily: 'Poppins',color:'white',border:'0.5px solid white' }} >Join Room <LoginIcon style={{ marginLeft: '9px', width: '25px', height: '24px',color:'white' }}></LoginIcon></Button>) : (<Button disabled sx={{ width: "179px", margin: 'auto', fontWeight: 'bold',fontFamily: 'Poppins' }} variant="outlined">Join Room <LoginIcon style={{ marginLeft: '9px', width: '25px', height: '24px' }}></LoginIcon></Button>)
+        roomid ? (<Button onClick={() => { handleRoomID() }} sx={{ width: "179px", margin: 'auto', fontFamily: 'Poppins', color: 'white', backgroundColor: '#2F80ED', textTransform: 'lowercase' }} >Join Room <LoginIcon style={{ marginLeft: '9px', width: '25px', height: '24px', color: 'white', }}></LoginIcon></Button>) : (<Button disabled sx={{ width: "179px", margin: 'auto', fontFamily: 'Poppins', textTransform: 'lowercase', backgroundColor: '#5c84b8' }}>Join Room <LoginIcon style={{ marginLeft: '9px', width: '25px', height: '24px' }}></LoginIcon></Button>)
       }
-      <Button onClick={() => { props.setUser(null) }} style={{ position: 'absolute', top: 0, right: 0, marginTop: '19px', marginLeft: "19px",color:'white'}}><LogoutIcon sx={{width:'22px'}} /></Button>
+      <Button onClick={() => { props.setUser(null) }} style={{ position: 'absolute', bottom: 0, marginTop: '19px', marginLeft: "19px", color: 'white', marginBottom: '21px', textTransform: 'lowercase', fontSize: '14px', fontFamily: 'Poppins' }}>signout</Button>
 
     </div>
   )

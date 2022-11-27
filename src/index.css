@@ -4,11 +4,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(18, 15, 19);
 }
-*{
-  margin: 0;padding: 0;
+
+* {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   font-family: Poppins;
-}
-.leftbar{
-  /* transition: 0.5s; */
 }
